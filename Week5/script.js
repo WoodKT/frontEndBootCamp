@@ -1,3 +1,4 @@
+/*
 class Player {
     constructor(name, position) {
         this.name = name;
@@ -114,3 +115,122 @@ class Menu {
 
 let menu = new Menu();
 menu.start();
+*/
+
+class Pet {
+    constructor(name, position) {
+        this.name = name;
+        this.position = position;
+    }
+
+    describe() {
+        return `${this.name} plays ${this.position}.`;
+    }
+}
+
+class Animal {
+    constructor(name) {
+        this.name = name;
+        this.pets = [];
+    }
+
+    addPet(pet) {
+        if (pet instanceof Pet) {
+            this.pets.push(pet);
+        } else {
+            throw new Error(`You can only pass an instance of Pet, Arguement is not a pet: ${pet}`);
+        }
+    }
+
+    describe() {
+        return `${this.name} has ${this.pets.length} pets.`;
+    }
+}
+//important
+class Menu {
+    constructor() {
+        this.animals = [];
+        this.selectedAnimal = null;
+    }
+
+    start() {
+        let selection = this.showMainMenuOptions();
+        while (selection != 0) {
+            switch (selection) {
+                case '1':
+                    this.createAnimal();
+                    break;
+                case '2':
+                    this.viewAnimal();
+                    break;
+                case '3':
+                    this.deleteAnimal();
+                    break;
+                case '4':
+                    this.displayAnimals();
+                    break;
+                default:
+                    selection = 0;
+            }
+            selection = this.showMainMenuOptions();
+        }
+        alert('Goodbye!'); //if 0 selected
+    }
+
+    showMainMenuOptions() {
+        return prompt(`
+        0) exit
+        1) create new animal
+        2) view animal
+        3) delete animal
+        4) display all animals
+        `);
+    }
+
+    showAnimalMenuOptions(animalInfo) {
+        return prompt(`
+        0) back
+        1) create pet
+        2) delete pet
+        -----------------------
+        ${animalInfo}
+        `);
+    }
+
+    displayAnimals() {
+        let animalString = '';
+        for (let i = 0; i < this.animals.length; i++) {
+            animalString += i + ') ' + this.animals[i].name + '\n';
+        }
+        alert(animalstring);
+    }
+    createAnimal() {
+        let name = prompt('Enter name for new animal:')
+        this.animals.push(new Animal(name));
+    }
+
+    viewAnimal() {
+        let index = prompt('Enter the index of the animal you wish to view:');
+        if (index > -1 && index < this.animals.length) {
+            this.selectedAnimal = this.animals[index];
+            let description = 'Animal Name: ' + this.selectedAnimal.name + '\n';
+
+            for (let i = 0; i < this.selectedAnimal.pets.length; i++) {
+                description += i + ') ' + this.selectedAnimal.pets[i].name + ' - ' + this.selectedAnimal.pets[i].position + '\n';
+            }
+
+            let selection = this.showAnimalMenuOptions(description); //submenu
+            switch (selection) {
+                case '1':
+                    this.createPet();
+                    break;
+                case '2':
+                    this.deletePet();
+            }
+        }
+    }
+}
+
+let menu = new Menu();
+menu.start();
+
