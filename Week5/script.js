@@ -117,7 +117,7 @@ let menu = new Menu();
 menu.start();
 */
 
-class Pet {
+class Breed {
     constructor(name, position) {
         this.name = name;
         this.position = position;
@@ -131,19 +131,19 @@ class Pet {
 class Animal {
     constructor(name) {
         this.name = name;
-        this.pets = [];
+        this.breeds = [];
     }
 
-    addPet(pet) {
-        if (pet instanceof Pet) {
-            this.pets.push(pet);
+    addBreed(breed) {
+        if (breed instanceof Breed) {
+            this.breeds.push(breed);
         } else {
-            throw new Error(`You can only pass an instance of Pet, Arguement is not a pet: ${pet}`);
+            throw new Error(`You can only pass an instance of Breed, Arguement is not a breed: ${breed}`);
         }
     }
 
     describe() {
-        return `${this.name} has ${this.pets.length} pets.`;
+        return `${this.name} has ${this.breeds.length} breeds.`;
     }
 }
 //important
@@ -190,8 +190,8 @@ class Menu {
     showAnimalMenuOptions(animalInfo) {
         return prompt(`
         0) back
-        1) create pet
-        2) delete pet
+        1) create breed
+        2) delete breed
         -----------------------
         ${animalInfo}
         `);
@@ -215,17 +215,17 @@ class Menu {
             this.selectedAnimal = this.animals[index];
             let description = 'Animal Name: ' + this.selectedAnimal.name + '\n';
 
-            for (let i = 0; i < this.selectedAnimal.pets.length; i++) {
-                description += i + ') ' + this.selectedAnimal.pets[i].name + ' - ' + this.selectedAnimal.pets[i].position + '\n';
+            for (let i = 0; i < this.selectedAnimal.breeds.length; i++) {
+                description += i + ') ' + this.selectedAnimal.breeds[i].name + ' - ' + this.selectedAnimal.breeds[i].position + '\n';
             }
 
             let selection = this.showAnimalMenuOptions(description); //submenu
             switch (selection) {
                 case '1':
-                    this.createPet();
+                    this.createBreed();
                     break;
                 case '2':
-                    this.deletePet();
+                    this.deleteBreed();
             }
         }
     }
