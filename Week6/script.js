@@ -42,9 +42,9 @@ class Board {
         this.cardsInMiddle = [];
         this.players = [];
     }
-    start(playerOneName, playerTwoName) {
-        this.players.push(newPlayer(playerOneName));
-        this.players.push(newPlayer(playerTwoName));
+    start() {
+        this.players.push(name1);
+        this.players.push(name2);
         let d = new Deck();
         d.createDeck();
         d.shuffleDeck();
