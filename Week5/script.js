@@ -202,7 +202,7 @@ class Menu {
         for (let i = 0; i < this.animals.length; i++) {
             animalString += i + ') ' + this.animals[i].name + '\n';
         }
-        alert(animalstring);
+        alert(animalString);
     }
     createAnimal() {
         let name = prompt('Enter name for new animal:')
@@ -229,6 +229,12 @@ class Menu {
             }
         }
     }
+    deleteAnimal() {
+        let index = prompt('Remove Animal:')
+        if (index > -1 && index < this.animals.length) {
+        this.animals.splice(Animal, 1);
+    }
+}
 }
 
 let menu = new Menu();
