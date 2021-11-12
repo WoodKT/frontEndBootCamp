@@ -124,7 +124,7 @@ class Breed {
     }
 
     describe() {
-        return `${this.name} plays ${this.trait}.`;
+        return `${this.name} is ${this.trait}.`;
     }
 }
 
