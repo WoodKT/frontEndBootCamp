@@ -20,7 +20,7 @@ class Team {
         if (player instanceof Player) {
             this.players.push(player);
         } else {
-            throw new Error(`You can only ass an instance of Player, Arguement is not a player: ${player}`);
+            throw new Error(`You can only pass an instance of Player, Arguement is not a player: ${player}`);
         }
     }
 
@@ -217,6 +217,7 @@ class Menu {
         }
         alert(animalString);
     }
+
     createAnimal() {
         let name = prompt('Enter name for new animal:')
         this.animals.push(new Animal(name));
