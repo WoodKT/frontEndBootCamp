@@ -1,12 +1,12 @@
 /*
 class Player {
-    constructor(name, position) {
+    constructor(name, trait) {
         this.name = name;
-        this.position = position;
+        this.trait = trait;
     }
 
     describe() {
-        return `${this.name} plays ${this.position}.`;
+        return `${this.name} plays ${this.trait}.`;
     }
 }
 
@@ -98,7 +98,7 @@ class Menu {
             let description = 'Team Name: ' + this.selectedTeam.name + '\n';
 
             for (let i = 0; i < this.selectedTeam.players.length; i++) {
-                description += i + ') ' + this.selectedTeam.players[i].name + ' - ' + this.selectedTeam.players[i].position + '\n';
+                description += i + ') ' + this.selectedTeam.players[i].name + ' - ' + this.selectedTeam.players[i].trait + '\n';
             }
 
             let selection = this.showTeamMenuOptions(description); //submenu
@@ -118,13 +118,13 @@ menu.start();
 */
 
 class Breed {
-    constructor(name, position) {
+    constructor(name, trait) {
         this.name = name;
-        this.position = position;
+        this.trait = trait;
     }
 
     describe() {
-        return `${this.name} plays ${this.position}.`;
+        return `${this.name} plays ${this.trait}.`;
     }
 }
 
@@ -216,7 +216,7 @@ class Menu {
             let description = 'Animal Name: ' + this.selectedAnimal.name + '\n';
 
             for (let i = 0; i < this.selectedAnimal.breeds.length; i++) {
-                description += i + ') ' + this.selectedAnimal.breeds[i].name + ' - ' + this.selectedAnimal.breeds[i].position + '\n';
+                description += i + ') ' + this.selectedAnimal.breeds[i].name + ' - ' + this.selectedAnimal.breeds[i].trait + '\n';
             }
 
             let selection = this.showAnimalMenuOptions(description); //submenu
