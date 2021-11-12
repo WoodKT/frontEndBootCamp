@@ -190,15 +190,15 @@ class Menu {
         alert('Goodbye!'); //if 0 selected
     }
 
-    // start() {
+    // start() { //unneccessary, I was confused
     //     let selection = this.showAnimalMenuOptions();
     //     while (selection != 0) {
     //         switch (selection) {
     //             case '1':
-    //                 this.createAnimal();
+    //                 this.createBreed();
     //                 break;
     //             case '2':
-    //                 this.deleteAnimal();
+    //                 this.deleteBreed();
     //                 break;
     //             default:
     //                 selection = 0;
