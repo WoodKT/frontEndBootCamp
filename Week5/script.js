@@ -111,6 +111,19 @@ class Menu {
             }
         }
     }
+
+    createPlayer() {
+        let name = prompt('Enter name for new player:');
+        let position = prompt('Enter position for new player:');
+        this.selectedTeam.players.push(new Player(name, position));
+    }
+
+    deletePlayer(){
+        let index = prompt('Enter the index of the player you wish to delete:');
+        if(index > -1 && index < this.selectedTeam.players.length){
+            this.selectedTeam.players.splice(index, 1);
+        }
+    }
 }
 
 let menu = new Menu();
@@ -232,7 +245,20 @@ class Menu {
     deleteAnimal() {
         let index = prompt('Remove Animal:')
         if (index > -1 && index < this.animals.length) {
-        this.animals.splice(Animal, 1);
+        this.animals.splice(index, 1);
+    }
+}
+
+createBreed() {
+    let name = prompt('Enter name for new breed:');
+    let trait = prompt('Enter trait for new breed:');
+    this.selectedAnimal.breeds.push(new Breed(name, trait));
+}
+
+deleteBreed(){
+    let index = prompt('Enter the index of the breed you wish to delete:');
+    if(index > -1 && index < this.selectedAnimal.breeds.length){
+        this.selectedAnimal.breeds.splice(index, 1);
     }
 }
 }
