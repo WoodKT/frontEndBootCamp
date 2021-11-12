@@ -190,6 +190,24 @@ class Menu {
         alert('Goodbye!'); //if 0 selected
     }
 
+    // start() {
+    //     let selection = this.showAnimalMenuOptions();
+    //     while (selection != 0) {
+    //         switch (selection) {
+    //             case '1':
+    //                 this.createAnimal();
+    //                 break;
+    //             case '2':
+    //                 this.deleteAnimal();
+    //                 break;
+    //             default:
+    //                 selection = 0;
+    //         }
+    //         selection = this.showAnimalMenuOptions();
+    //     }
+    //     alert('Goodbye!'); //if 0 selected
+    // }
+
     showMainMenuOptions() {
         return prompt(`
         0) exit
