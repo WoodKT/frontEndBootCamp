@@ -30,7 +30,8 @@ class EventOrganier {
     constructor(events) {
         this.events = [];
     }
-    addNewEvent(event) {
+    addNewEvent() {
+        let event = new Event();
         if (event instanceof Event) {
             this.events.push(event);
         } else {
@@ -38,90 +39,73 @@ class EventOrganier {
         }
     }
 
-    describe() {
-        return `${this.title} has ${this.events.length} events.`;
-    }
-}
-
-
-class Menu {
-    constructor() {
-        this.events = [];
-        this.selectedEventOrganizer = null;
-    }
-
-    start() {
-        let selection = this.showMainMenuOptions();
-        while (selection != 0) {
-            switch (selection) {
-                case '1':
-                    this.addNewEvent();
-                    break;
-                case '2':
-                    this.removeEvent();
-                    break;
-                default:
-                    selection = 0;
-            }
-            selection = this.showMainMenuOptions();
-        }
-        alert('Goodbye!'); //if 0 selected
-    }
-
-    showMainMenuOptions() {
-        return prompt(`
-        0) exit
-        1) add new event
-        2) remove event
-        `);
-    }
-
-    addNewEvent() {
-        let title = prompt('Enter title for new event:')
-        // this.events.push(new Event(events));
-        let date = prompt('Enter date for new event');
-        this.selectedEventOrganizer.events.push(new Event(title, date));
-    }
-
-    removeEvent() {
+        removeEvent() {
         let index = prompt('Remove Event:')
         if (index > -1 && index < this.events.length) {
         this.events.splice(index, 1);
     }
 }
 
-
-let menu = new Menu();
-menu.start();
-
-
-
+    describe() {
+        return `${this.title} has ${this.events.length} events.`;
+    }
+}
 
 
+// class Menu {
+//     constructor() {
+//         this.events = [];
+//         this.selectedEventOrganizer = null;
+//     }
 
-//class Event {
-    //   constructor(title, date) {
-    //     this.title = title; //string
-    //     this.date = date; //string
-    //   }
-    
-    // }
-    
-    // class EventOrganier {
-    //     constructor(events) {
-    //         this.events = [];
-    //     }
-    //     addNewEvent() {
-    //         let title = prompt('Enter title for new event:')
-    //         // this.events.push(new Event(events));
-    //         let date = prompt('Enter date for new event');
-    //         this.selectedEventOrganizer.events.push(new Event(title, date));
-    //     }
-        
-    //     removeEvent() {
-    //         let index = prompt('Remove Event:')
-    //         if (index > -1 && index < this.events.length) {
-    //         this.events.splice(index, 1);
-    //     }
-    //     }
-    // }
+//     start() {
+//         let selection = this.showMainMenuOptions();
+//         while (selection != 0) {
+//             switch (selection) {
+//                 case '1':
+//                     this.addNewEvent();
+//                     break;
+//                 case '2':
+//                     this.removeEvent();
+//                     break;
+//                 default:
+//                     selection = 0;
+//             }
+//             selection = this.showMainMenuOptions();
+//         }
+//         alert('Goodbye!'); //if 0 selected
+//     }
+
+//     showMainMenuOptions() {
+//         return prompt(`
+//         0) exit
+//         1) add new event
+//         2) remove event
+//         `);
+//     }
+
+//     addNewEvent() {
+//         let title = prompt('Enter title for new event:')
+//         // this.events.push(new Event(events));
+//         let date = prompt('Enter date for new event');
+//         this.selectedEventOrganizer.events.push(new Event(title, date));
+//     }
+
+//     removeEvent() {
+//         let index = prompt('Remove Event:')
+//         if (index > -1 && index < this.events.length) {
+//         this.events.splice(index, 1);
+//     }
+// }
+// }
+
+// let menu = new Menu();
+// menu.start();
+
+let event1 = new Event('party', '10/20/21');
+let event2 = new Event('wedding', '9/17/22');
+let event3 = new Event('christmas', '12/25/21');
+console.log(event1);
+console.log(JSON.stringify(event1));
+console.dir(event1);
+console.table(event1);
