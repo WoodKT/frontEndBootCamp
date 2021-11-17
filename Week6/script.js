@@ -37,10 +37,12 @@ class Player {
         this.playerCards = [];
     }
 
+    //MOCHA/CHAI testing
     getPlayerName() {
         return this.name;
     }
 
+    //method to increment score
     incrementScore(){
         this.score += 1;
     }
