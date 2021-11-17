@@ -1,0 +1,23 @@
+#main {
+    display: flex;
+    justify-content: space-around;
+}
+
+#block1,
+#block2,
+#block3 {
+    width: 200px;
+    height: 200px;
+}
+
+#block1 {
+    background-color: blueviolet;
+}
+
+#block2 {
+    background-color: bisque;
+}
+
+#block3 {
+    background-color: aqua;
+}
