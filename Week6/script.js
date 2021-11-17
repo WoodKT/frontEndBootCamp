@@ -33,7 +33,16 @@ class Deck {
 class Player {
     constructor(name) {
         this.playerName = name;
+        this.score = 0;
         this.playerCards = [];
+    }
+
+    getPlayerName() {
+        return this.name;
+    }
+
+    incrementScore(){
+        this.score += 1;
     }
 }
 
@@ -43,8 +52,8 @@ class Board {
         this.players = [];
     }
     start() {
-        this.players.push(name1);
-        this.players.push(name2);
+        this.players.push('');
+        this.players.push('');
         let d = new Deck();
         d.createDeck();
         d.shuffleDeck();
@@ -54,5 +63,5 @@ class Board {
 }
 
 let gameBoard = new Board();
-gameBoard.start('Computer', 'Kristy');
-console.log(gameBoard.players);
+gameBoard.start();
+//console.log(gameBoard.players);
