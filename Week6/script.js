@@ -12,7 +12,7 @@ class Deck {
         this.reset();
         this.shuffle();
         this.deal();
-        this.hands = [];
+        this.hand = [];
     }
 
     reset(){
@@ -42,13 +42,12 @@ class Deck {
           }
         
           deal(){
-            let hand1 = this.deck.slice(0,26);
-            let hand2 = this.deck.slice(26, 52);
-            let hands = [];
-            hands.push(hand1);
-            hands.push(hand2);
-            return hands;
-//            return this.deck.pop();
+            // let hand1 = this.deck.slice(0,26);
+            // let hand2 = this.deck.slice(26, 52);
+            // hand1.push(hand1);
+            // hand2.push(hand2);
+//            return hand;
+            return this.hand.pop();
           }
     }
   
@@ -57,14 +56,18 @@ const deck1 = new Deck();
 console.log(deck1.deck);
 deck1.reset()
 console.log(deck1.deck);
-console.log()
 
 class Player {
     constructor(name) {
-        this.playerName = name;
+        this.name = name;
         this.score = 0;
-        this.playerCards = [];
+        this.hand = [];
     }
+
+    createPlayer() {
+      let name = prompt('Enter name for new player:');
+      this.players.push(new Player(name));
+  }
 
     //MOCHA/CHAI testing
     getPlayerName() {
