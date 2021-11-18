@@ -11,8 +11,8 @@ class Deck {
         this.deck = [];
         this.reset();
         this.shuffle();
-        this.deal();
-        this.hand = [];
+//        this.deal();
+//        this.hand = [];
     }
 
     reset(){
@@ -41,14 +41,14 @@ class Deck {
             return this;
           }
         
-          deal(){
+//          deal(){
             // let hand1 = this.deck.slice(0,26);
             // let hand2 = this.deck.slice(26, 52);
             // hand1.push(hand1);
             // hand2.push(hand2);
 //            return hand;
-            return this.hand.pop();
-          }
+//            return this.hand.pop();
+//          }
     }
   
 
