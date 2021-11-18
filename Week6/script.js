@@ -17,7 +17,7 @@ class Deck {
         this.deck = [];
 
         const suits = ['clubs', 'diamonds', 'hearts', 'spades'];
-        const ranks = ['ace', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'jack', 'queen', 'king'];
+        const ranks = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
 
         for (let suit in suits) {
             for (let rank in ranks) {
