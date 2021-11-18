@@ -8,27 +8,69 @@ class Card {
 
 class Deck {
     constructor() {
-        this.cards = [];
+        this.deck = [];
+        this.reset();
+        this.shuffle();
     }
-    createDeck() {
-        let suits = ['clubs', 'diamonds', 'hearts', 'spades'];
-        let ranks = ['ace', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'jack', 'queen', 'king'];
-        let values = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
 
-        for (let i = 0; i < suits.length; i++) {
-            for (let j = 0; j < ranks.length; j++) {
-                this.cards.push(new Card(suits[i], ranks[j], values[j]));
+    reset(){
+        this.deck = [];
+        
+        const suits = ['clubs', 'diamonds', 'hearts', 'spades'];
+        const ranks = ['ace', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'jack', 'queen', 'king'];
+
+        for (let suit in suits) {
+            for (let rank in ranks) {
+              this.deck.push(`${ranks[rank]} of ${suits[suit]}`);
             }
+          }
         }
+
+          shuffle() {
+            const { deck } = this;
+            let m = deck.length, i;
+        
+            while(m){
+              i = Math.floor(Math.random() * m--);
+        
+              [deck[m], deck[i]] = [deck[i], deck[m]];
+            }
+        
+            return this;
+          }
+        
+          deal(){
+            return this.deck.pop();
+          }
     }
-    shuffleDeck() {
-        let location1, location2, tmp;
-        for (let i = 0; i < 1000; i++) {
-            location1 = Math.floor((Math.random() * this.cards.length));
-            tmp = this.cards[location1]; this.cards[location1] = this.cards[location2]; this.cards[location2] = tmp;
-        }
-    }
-}
+
+    // createDeck() {
+    //     const suits = ['clubs', 'diamonds', 'hearts', 'spades'];
+    //     const ranks = ['ace', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'jack', 'queen', 'king'];
+    //     let values = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
+
+    //     for (let i = 0; i < suits.length; i++) {
+    //         for (let j = 0; j < ranks.length; j++) {
+    //             this.cards.push(new Card(suits[i], ranks[j], values[j]));
+    //         }
+    //     }
+    // }
+
+
+    // shuffleDeck() {
+    //     let location1, location2, tmp;
+    //     for (let i = 0; i < 1000; i++) {
+    //         location1 = Math.floor((Math.random() * this.cards.length));
+    //         tmp = this.cards[location1]; this.cards[location1] = this.cards[location2]; this.cards[location2] = tmp;
+    //     }
+    // }
+
+
+const deck1 = new Deck();
+deck1.shuffle()
+console.log(deck1.deck);
+deck1.deal()
+console.log(deck1.deck);
 
 class Player {
     constructor(name) {
@@ -48,6 +90,8 @@ class Player {
     }
 }
 
+
+/*
 class Board {
     constructor() {
         this.cardsInMiddle = [];
@@ -67,3 +111,5 @@ class Board {
 let gameBoard = new Board();
 gameBoard.start();
 //console.log(gameBoard.players);
+
+*/
