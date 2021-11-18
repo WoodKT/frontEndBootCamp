@@ -24,7 +24,7 @@ class Deck {
               this.deck.push(`${ranks[rank]} of ${suits[suit]}`);
             }
           }
-        }
+    }
 
           shuffle() {
             const { deck } = this;
@@ -40,14 +40,22 @@ class Deck {
           }
         
           deal(){
-            return this.deck.pop();
+            let hand1 = this.cards.slice(0,26);
+            let hand2 = this.cards.slice(26, 52);
+            let hands = [];
+            hands.push(hand1);
+            hands.push(hand2);
+            return hands;
+//            return this.deck.pop();
           }
     }
+  
 
 const deck1 = new Deck();
 console.log(deck1.deck);
 deck1.reset()
 console.log(deck1.deck);
+console.log(hand1.deck);
 
 class Player {
     constructor(name) {
