@@ -15,7 +15,7 @@ class Deck {
 
     reset(){
         this.deck = [];
-        
+
         const suits = ['clubs', 'diamonds', 'hearts', 'spades'];
         const ranks = ['ace', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'jack', 'queen', 'king'];
 
@@ -44,32 +44,9 @@ class Deck {
           }
     }
 
-    // createDeck() {
-    //     const suits = ['clubs', 'diamonds', 'hearts', 'spades'];
-    //     const ranks = ['ace', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'jack', 'queen', 'king'];
-    //     let values = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
-
-    //     for (let i = 0; i < suits.length; i++) {
-    //         for (let j = 0; j < ranks.length; j++) {
-    //             this.cards.push(new Card(suits[i], ranks[j], values[j]));
-    //         }
-    //     }
-    // }
-
-
-    // shuffleDeck() {
-    //     let location1, location2, tmp;
-    //     for (let i = 0; i < 1000; i++) {
-    //         location1 = Math.floor((Math.random() * this.cards.length));
-    //         tmp = this.cards[location1]; this.cards[location1] = this.cards[location2]; this.cards[location2] = tmp;
-    //     }
-    // }
-
-
 const deck1 = new Deck();
-deck1.shuffle()
 console.log(deck1.deck);
-deck1.deal()
+deck1.reset()
 console.log(deck1.deck);
 
 class Player {
@@ -113,3 +90,29 @@ gameBoard.start();
 //console.log(gameBoard.players);
 
 */
+
+
+
+
+
+
+    // createDeck() {
+    //     const suits = ['clubs', 'diamonds', 'hearts', 'spades'];
+    //     const ranks = ['ace', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'jack', 'queen', 'king'];
+    //     let values = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
+
+    //     for (let i = 0; i < suits.length; i++) {
+    //         for (let j = 0; j < ranks.length; j++) {
+    //             this.cards.push(new Card(suits[i], ranks[j], values[j]));
+    //         }
+    //     }
+    // }
+
+
+    // shuffleDeck() {
+    //     let location1, location2, tmp;
+    //     for (let i = 0; i < 1000; i++) {
+    //         location1 = Math.floor((Math.random() * this.cards.length));
+    //         tmp = this.cards[location1]; this.cards[location1] = this.cards[location2]; this.cards[location2] = tmp;
+    //     }
+    // }
