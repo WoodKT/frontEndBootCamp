@@ -41,14 +41,15 @@ class Deck {
             return this;
           }
         
-//          deal(){
-            // let hand1 = this.deck.slice(0,26);
-            // let hand2 = this.deck.slice(26, 52);
-            // hand1.push(hand1);
-            // hand2.push(hand2);
-//            return hand;
-//            return this.hand.pop();
-//          }
+          deal(){
+//            let cardsPerPerson = 26;
+             let hand1 = this.deck.slice(0,26);
+             let hand2 = this.deck.slice(26, 52);
+             let hands = [];
+             hands.push(hand1);
+             hands.push(hand2);
+            return hand;
+          }
     }
   
 
@@ -63,21 +64,31 @@ class Player {
         this.score = 0;
         this.hand = [];
     }
+    
+    addCards(decks){
+      this.hand.push(decks);
+    }
+
+    playCard(){
+      return this.hand.pop();
+    }
 
     createPlayer() {
       let name = prompt('Enter name for new player:');
       this.players.push(new Player(name));
   }
 
+  /*
     //MOCHA/CHAI testing
     getPlayerName() {
         return this.name;
     }
-
+    */
     //method to increment score
     incrementScore(){
         this.score += 1;
     }
+
 }
 
 
