@@ -45,9 +45,9 @@ class Deck {
 //            let cardsPerPerson = 26;
              let hand1 = this.deck.slice(0,26);
              let hand2 = this.deck.slice(26, 52);
-             let hands = [];
-             hands.push(hand1);
-             hands.push(hand2);
+             let hand = [];
+             hand.push(hand1);
+             hand.push(hand2);
             return hand;
           }
     }
@@ -73,6 +73,12 @@ class Player {
       return this.hand.pop();
     }
 
+    placeCard (card) {
+      let totalSpaces = this.hand.length + 1
+      let randomIndex = Math.floor(Math.random() * totalSpaces)
+      this.hand.splice(randomIndex, 0, card)
+    }
+
     createPlayer() {
       let name = prompt('Enter name for new player:');
       this.players.push(new Player(name));
@@ -92,28 +98,67 @@ class Player {
 }
 
 
-/*
+
 class Board {
     constructor() {
-        this.cardsInMiddle = [];
-        this.players = [];
+        this.deck = new Deck();
+        this.player1 = new Player(1);
+        this.player2 = new Player(2);
+
+        this.startBoard();
     }
-    start() {
-        this.players.push('');
-        this.players.push('');
-        let d = new Deck();
-        d.createDeck();
-        d.shuffleDeck();
-        this.players[0].playerCards = d.cards.slice(0, 26);
-        this.players[1].playerCards = d.cards.slice(26, 52);
+
+    startBoard() {
+      let hands = this.deck.deal();
+      let hand1 = hands[0];
+      let hand2 = hands[1];
+
+      hand1.forEach((card) => {
+        this.player1.addCards(card)
+      })
+
+      hand2.forEach((card) => {
+        this.player2.addCards(card)
+      })
+    }
+
+    boardRound(){
+      let player1Card = this.player1.playCard();
+      let player2Card = this.player2.playCard();
+
+      console.log(`
+      Player 1 plays ${player1Card.rank} of ${player1Card.suit}.
+      Player 2 plays ${player2Card.rank} of ${player1Card.suit}.
+    `)
+
+    if (player1Card.value === player2Card.value) {
+      if (this.player1.hand.length === 0) {
+        console.log('Tie :(')
+      } else {
+        console.log('Tie :(')
+        this.player1.placeCard(player1Card)
+        this.player2.placeCard(player2Card)
+      }
+    } else if (player1Card.value === 1) {
+      console.log('Player 1 wins point!')
+      this.player1.incrementScore(1)
+    } else if (player2Card.value === 1) {
+      console.log('Player 2 wins point!')
+      this.player2.incrementScore(1)
+    } else if (player1Card.value > player2Card.value) {
+      console.log('Player 1 wins point!')
+      this.player1.incrementScore(1)
+    } else if (player2Card.value > player1Card.value) {
+      console.log('Player 2 wins point!')
+      this.player2.incrementScore(1)
+    }
+
     }
 }
 
-let gameBoard = new Board();
-gameBoard.start();
-//console.log(gameBoard.players);
+let board = new Board();
+board.startBoard();
 
-*/
 
 
 
@@ -140,3 +185,25 @@ gameBoard.start();
     //         tmp = this.cards[location1]; this.cards[location1] = this.cards[location2]; this.cards[location2] = tmp;
     //     }
     // }
+
+/*
+    class Board {
+      constructor() {
+          this.cardsInMiddle = [];
+          this.players = [];
+      }
+      start() {
+          this.players.push('');
+          this.players.push('');
+          let d = new Deck();
+          d.createDeck();
+          d.shuffleDeck();
+          this.players[0].playerCards = d.cards.slice(0, 26);
+          this.players[1].playerCards = d.cards.slice(26, 52);
+      }
+  }
+  
+  let gameBoard = new Board();
+  gameBoard.start();
+
+  */
