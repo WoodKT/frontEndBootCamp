@@ -121,15 +121,25 @@ class Board {
         }
         this.clear();
       }
+      else if(this.playedCards[0].value == this.playedCards[1].value){  //if tie
+        console.log(`Oh no, a tie!`);
+        for(let t = 0; t < this.playedCards.length; t++){
+          this.newDeck.hand1.unshift(this.playedCards[t]);
+          this.newDeck.hand2.unshift(this.playedCards[t]);
+        }
+        this.clear();
+      }
       console.log(`Player 1 has ${this.newDeck.hand1.length} card(s). Player 2 has ${this.newDeck.hand2.length} card(s).`); 
       this.clear();
       }
       else{
         if(this.newDeck.hand1.length > this.newDeck.hand2.length){
           console.log(`Player 1 Wins!`);
+//          console.log(`Player 1 has ${this.newDeck.hand1.length} card(s).`); object literal score
         }
         else{
           console.log(`Player 2 Wins!`);
+//          console.log(`Player 2 has ${this.newDeck.hand1.length} card(s).`); object literal score
         }
       }
     }
