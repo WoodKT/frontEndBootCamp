@@ -4,6 +4,9 @@ class Card {
         this.rank = rank;
         this.value = value;
     }
+    describe() {
+      return `${this.rank} of ${this.suit} is equal to a value of ${this.value}`
+  }
 }
 
 class Deck {
@@ -41,10 +44,32 @@ class Deck {
       }
   }
 
+  /*
+  class Player {
+    constructor(name) {
+        this.name = name;
+        this.score = 0;
+        this.hand = [];
+    }
+        //Used for MOCHA/CHAI testing
+        getPlayerName() {
+          return this.name;
+      }
+        // method to increment score based on winning 
+        incrementScore() {
+          this.score += 1;
+      }
+      drawCard() {
+        return this.hand.pop();
+    }
+  }
+*/
+
 class Board {
     constructor() {
       this.newDeck = new Deck();
       this.playedCards = [];
+      this.score = 0;
       this.round = 1;
     }
 
@@ -53,6 +78,11 @@ class Board {
       this.newDeck.shuffle(this.newDeck.cards);
       this.newDeck.dealCards();
     }
+
+            // method to increment score based on winning 
+      incrementScore() {
+        this.score += 1;
+      }
 
     playCard(){
       if( this.newDeck.hand1.length > 0 && this.newDeck.hand2.length > 0){
@@ -77,6 +107,7 @@ class Board {
       if( this.playedCards.length > 0){ 
       if(this.playedCards[0].value > this.playedCards[1].value){ 
         console.log(`Player 1 wins this round!`);
+//      player1.incrementScore();        
         for(let h = 0; h < this.playedCards.length; h++){
           this.newDeck.hand1.unshift(this.playedCards[h]);
         }
@@ -84,6 +115,7 @@ class Board {
       }
       else if(this.playedCards[0].value < this.playedCards[1].value){ 
         console.log(`Player 2 wins this round`);
+ //     player2.incrementScore();       
         for(let i = 0; i < this.playedCards.length; i++){
           this.newDeck.hand2.unshift(this.playedCards[i]);
         }
@@ -118,10 +150,10 @@ class Board {
     }
 
     if(this.newDeck.hand1.length > this.newDeck.hand2.length){
-      console.log(`Player 1 wins!`);
+      console.log(`Player 1 wins!`); //change to score
     }
     else if (this.newDeck.hand1.length < this.newDeck.hand2.length){
-      console.log(`Player 2 wins!`);
+      console.log(`Player 2 wins!`); //change to score
     }
   }
     
