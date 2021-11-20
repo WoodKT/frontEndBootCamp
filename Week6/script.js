@@ -43,7 +43,9 @@ class Deck {
         this.hand2 = this.cards.slice(26, 52);
       }
   }
-
+  let test = new Deck();
+  test.createDeck();
+console.log(test.cards);
   /*
   class Player {
     constructor(name) {
@@ -104,7 +106,7 @@ class Board {
     }
 
     compareCards(){
-      if( this.playedCards.length > 0){ 
+      if( this.playedCards.length > 0){
       if(this.playedCards[0].value > this.playedCards[1].value){ 
         console.log(`Player 1 wins this round!`);
 //      player1.incrementScore();        
@@ -129,6 +131,7 @@ class Board {
         }
         this.clear();
       }
+//      console.log(`Player 1: ${this.playedCards[0]}, Player 2: ${this.playedCards[1]}`);
       console.log(`Player 1 has ${this.newDeck.hand1.length} card(s). Player 2 has ${this.newDeck.hand2.length} card(s).`); 
       this.clear();
       }
