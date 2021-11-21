@@ -46,32 +46,11 @@ class Deck {
   let test = new Deck();
   test.createDeck();
 console.log(test.cards);
-  /*
-  class Player {
-    constructor(name) {
-        this.name = name;
-        this.score = 0;
-        this.hand = [];
-    }
-        //Used for MOCHA/CHAI testing
-        getPlayerName() {
-          return this.name;
-      }
-        // method to increment score based on winning 
-        incrementScore() {
-          this.score += 1;
-      }
-      drawCard() {
-        return this.hand.pop();
-    }
-  }
-*/
 
 class Board {
     constructor() {
       this.newDeck = new Deck();
       this.playedCards = [];
-      this.discard = []
       this.scorep1 = 0;
       this.scorep2 = 0;
       this.round = 1;
@@ -108,7 +87,6 @@ class Board {
       if(this.playedCards[0].value > this.playedCards[1].value){ 
         this.scorep1 += 1; //add
         console.log(`Player 1 wins this round!`);
-//      player1.incrementScore();      ?  
         for(let h = 0; h < this.playedCards.length; h++){
           this.newDeck.hand1.unshift(this.playedCards[h]);
         }
@@ -117,13 +95,12 @@ class Board {
       else if(this.playedCards[0].value < this.playedCards[1].value){ 
         this.scorep2 += 1;
         console.log(`Player 2 wins this round`);
- //     player2.incrementScore();    ?   
         for(let i = 0; i < this.playedCards.length; i++){
           this.newDeck.hand2.unshift(this.playedCards[i]);
         }
         this.clear();
       }
-      else if(this.playedCards[0].value == this.playedCards[1].value){  //if tie
+      else {  //if tie else if(this.playedCards[0].value == this.playedCards[1].value)
         console.log(`Oh no, a tie!`);
         for(let t = 0; t < this.playedCards.length; t++){
           this.newDeck.hand1.unshift(this.playedCards[t]);
@@ -131,17 +108,8 @@ class Board {
         }
         this.clear();
       }
-//      console.log(`Player 1: ${this.playedCards[0]}, Player 2: ${this.playedCards[1]}`);
       console.log(`Player 1 has ${this.newDeck.hand1.length} card(s). Player 1 has ${this.scorep1} point(s). Player 2 has ${this.newDeck.hand2.length} card(s). Player 2 has ${this.scorep2} point(s).`); 
       this.clear();
-      }
-      else{ //is this even doing anything?
-        if(this.newDeck.hand1.length > this.newDeck.hand2.length){
-          console.log(`Player 1 Wins with ${this.scorep1} points!`);
-                }
-        else{
-          console.log(`Player 2 Wins with ${this.scorep2} points!`);
-        }
       }
     }
 
@@ -155,7 +123,7 @@ class Board {
   }
 
   playGame(){
-    while( this.scorep1 <= 26 && this.scorep2 <= 26){ //old logic : this.newDeck.hand1.length > 20 && this.newDeck.hand2.length > 20 
+    while( this.scorep1 < 30 && this.scorep2 < 30){ //old logic : this.newDeck.hand1.length > 20 && this.newDeck.hand2.length > 20 
       this.playRound();
       this.round++;
     }
@@ -167,19 +135,8 @@ class Board {
       console.log(`Player 2 wins with ${this.scorep2} points!`);
     }
   }
-    
     }
 
     let myBoard = new Board();
     myBoard.startBoard();
     console.log(myBoard.playGame());
-
-/*
-      class Player {
-    constructor(name) {
-        this.name = name;
-        this.value = 0;
-        this.hand = [];
-    }
-  }
-  */
