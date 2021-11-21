@@ -71,6 +71,7 @@ class Board {
     constructor() {
       this.newDeck = new Deck();
       this.playedCards = [];
+      this.discard = []
       this.scorep1 = 0;
       this.scorep2 = 0;
       this.round = 1;
@@ -84,8 +85,9 @@ class Board {
 
     playCard(){
       if( this.newDeck.hand1.length > 0 && this.newDeck.hand2.length > 0){
-        this.playedCards.push(this.newDeck.hand1.pop());
-        this.playedCards.push(this.newDeck.hand2.pop());
+        this.playedCards.push(this.newDeck.hand1.pop()); 
+        this.playedCards.push(this.newDeck.hand2.pop()); 
+        console.log(`Player 1 plays a ${this.playedCards[0].rank} of ${this.playedCards[0].suit}. Player 2 plays a ${this.playedCards[1].rank} of ${this.playedCards[1].suit}.`);
       }
       else if (this.newDeck.hand1.length === 0){
         for(let f = 0; f < this.playedCards.length; f++){
