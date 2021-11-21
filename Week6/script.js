@@ -71,7 +71,9 @@ class Board {
     constructor() {
       this.newDeck = new Deck();
       this.playedCards = [];
-      this.score = 0;
+//      this.score = 0;
+      this.scorep1 = 0;
+      this.scorep2 = 0;
       this.round = 1;
     }
 
@@ -83,7 +85,7 @@ class Board {
 
             // method to increment score based on winning 
       incrementScore() {
-        this.score += 1;
+        this.score += 1; //might not need
       }
 
     playCard(){
@@ -108,16 +110,18 @@ class Board {
     compareCards(){
       if( this.playedCards.length > 0){
       if(this.playedCards[0].value > this.playedCards[1].value){ 
+        this.scorep1 += 1; //add
         console.log(`Player 1 wins this round!`);
-//      player1.incrementScore();        
+//      player1.incrementScore();      ?  
         for(let h = 0; h < this.playedCards.length; h++){
           this.newDeck.hand1.unshift(this.playedCards[h]);
         }
         this.clear();
       }
       else if(this.playedCards[0].value < this.playedCards[1].value){ 
+        this.scorep2 += 1;
         console.log(`Player 2 wins this round`);
- //     player2.incrementScore();       
+ //     player2.incrementScore();    ?   
         for(let i = 0; i < this.playedCards.length; i++){
           this.newDeck.hand2.unshift(this.playedCards[i]);
         }
@@ -132,17 +136,15 @@ class Board {
         this.clear();
       }
 //      console.log(`Player 1: ${this.playedCards[0]}, Player 2: ${this.playedCards[1]}`);
-      console.log(`Player 1 has ${this.newDeck.hand1.length} card(s). Player 2 has ${this.newDeck.hand2.length} card(s).`); 
+      console.log(`Player 1 has ${this.newDeck.hand1.length} card(s). Player 1 has ${this.scorep1} point(s). Player 2 has ${this.newDeck.hand2.length} card(s). Player 2 has ${this.scorep2} point(s).`); 
       this.clear();
       }
-      else{
+      else{ //is this even doing anything?
         if(this.newDeck.hand1.length > this.newDeck.hand2.length){
-          console.log(`Player 1 Wins!`);
-//          console.log(`Player 1 has ${this.newDeck.hand1.length} card(s).`); object literal score
-        }
+          console.log(`Player 1 Wins with ${this.scorep1} points!`);
+                }
         else{
-          console.log(`Player 2 Wins!`);
-//          console.log(`Player 2 has ${this.newDeck.hand1.length} card(s).`); object literal score
+          console.log(`Player 2 Wins with ${this.scorep2} points!`);
         }
       }
     }
@@ -157,16 +159,16 @@ class Board {
   }
 
   playGame(){
-    while(this.newDeck.hand1.length > 20 && this.newDeck.hand2.length > 20 ){
+    while( this.newDeck.hand1.length > 20 && this.newDeck.hand2.length > 20){ //old logic : this.newDeck.hand1.length > 20 && this.newDeck.hand2.length > 20 
       this.playRound();
       this.round++;
     }
 
     if(this.newDeck.hand1.length > this.newDeck.hand2.length){
-      console.log(`Player 1 wins!`); //change to score
+      console.log(`Player 1 wins with ${this.scorep1} points!`); //change to score?
     }
     else if (this.newDeck.hand1.length < this.newDeck.hand2.length){
-      console.log(`Player 2 wins!`); //change to score
+      console.log(`Player 2 wins with ${this.scorep2} points!`); //change to score?
     }
   }
     
