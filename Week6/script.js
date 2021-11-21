@@ -71,7 +71,6 @@ class Board {
     constructor() {
       this.newDeck = new Deck();
       this.playedCards = [];
-//      this.score = 0;
       this.scorep1 = 0;
       this.scorep2 = 0;
       this.round = 1;
@@ -82,11 +81,6 @@ class Board {
       this.newDeck.shuffle(this.newDeck.cards);
       this.newDeck.dealCards();
     }
-
-            // method to increment score based on winning 
-      incrementScore() {
-        this.score += 1; //might not need
-      }
 
     playCard(){
       if( this.newDeck.hand1.length > 0 && this.newDeck.hand2.length > 0){
@@ -159,16 +153,16 @@ class Board {
   }
 
   playGame(){
-    while( this.newDeck.hand1.length > 20 && this.newDeck.hand2.length > 20){ //old logic : this.newDeck.hand1.length > 20 && this.newDeck.hand2.length > 20 
+    while( this.scorep1 <= 26 && this.scorep2 <= 26){ //old logic : this.newDeck.hand1.length > 20 && this.newDeck.hand2.length > 20 
       this.playRound();
       this.round++;
     }
 
-    if(this.newDeck.hand1.length > this.newDeck.hand2.length){
-      console.log(`Player 1 wins with ${this.scorep1} points!`); //change to score?
+    if(this.scorep1 > this.scorep2){
+      console.log(`Player 1 wins with ${this.scorep1} points!`);
     }
-    else if (this.newDeck.hand1.length < this.newDeck.hand2.length){
-      console.log(`Player 2 wins with ${this.scorep2} points!`); //change to score?
+    else if (this.scorep1 < this.scorep2){
+      console.log(`Player 2 wins with ${this.scorep2} points!`);
     }
   }
     
