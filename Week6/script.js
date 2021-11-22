@@ -72,13 +72,13 @@ class Board {
         for(let f = 0; f < this.playedCards.length; f++){
         this.newDeck.hand2.unshift(this.playedCards[f]);
         }
-        console.log(`Player 2 wins`);
+        console.log(`Player 2 wins`); //not doing anything?
       }
       else if(this.newDeck.hand2.length === 0){
         for(let g = 0; g < this.playedCards.length; g++){
           this.newDeck.hand1.unshift(this.playedCards[g]);
         }
-        console.log(`Player 1 wins`);
+        console.log(`Player 1 wins`); //not doing anything?
       }
     }
 
@@ -94,7 +94,7 @@ class Board {
       }
       else if(this.playedCards[0].value < this.playedCards[1].value){ 
         this.scorep2 += 1;
-        console.log(`Player 2 wins this round`);
+        console.log(`Player 2 wins this round!`);
         for(let i = 0; i < this.playedCards.length; i++){
           this.newDeck.hand2.unshift(this.playedCards[i]);
         }
@@ -103,12 +103,12 @@ class Board {
       else {  //if tie else if(this.playedCards[0].value == this.playedCards[1].value)
         console.log(`Oh no, a tie!`);
         for(let t = 0; t < this.playedCards.length; t++){
-          this.newDeck.hand1.unshift(this.playedCards[t]);
+          this.newDeck.hand1.unshift(this.playedCards[t]); //check logic is good here
           this.newDeck.hand2.unshift(this.playedCards[t]);
         }
         this.clear();
       }
-      console.log(`Player 1 has ${this.newDeck.hand1.length} card(s). Player 1 has ${this.scorep1} point(s). Player 2 has ${this.newDeck.hand2.length} card(s). Player 2 has ${this.scorep2} point(s).`); 
+      console.log(`Player 1 has ${this.newDeck.hand1.length} card(s) and ${this.scorep1} point(s). Player 2 has ${this.newDeck.hand2.length} card(s) and ${this.scorep2} point(s).`); 
       this.clear();
       }
     }
@@ -123,19 +123,19 @@ class Board {
   }
 
   playGame(){
-    while( this.scorep1 < 30 && this.scorep2 < 30){ //old logic : this.newDeck.hand1.length > 20 && this.newDeck.hand2.length > 20 
+    while( this.scorep1 < 30 && this.scorep2 < 30){
       this.playRound();
       this.round++;
     }
 
     if(this.scorep1 > this.scorep2){
-      console.log(`Player 1 wins with ${this.scorep1} points!`);
+      console.log(`Player 1 wins the game with ${this.scorep1} points!`);
     }
-    else if (this.scorep1 < this.scorep2){
-      console.log(`Player 2 wins with ${this.scorep2} points!`);
+    else {//(this.scorep1 < this.scorep2)
+      console.log(`Player 2 wins the game with ${this.scorep2} points!`);
     }
   }
-    }
+}
 
     let myBoard = new Board();
     myBoard.startBoard();
