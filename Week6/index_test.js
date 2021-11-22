@@ -10,7 +10,6 @@ describe('week6', function(){
     });
 });
 
-
 describe('week6', function(){
     describe('#dealCards', function(){
         it('deal hand of 26 cards', function(){
@@ -32,11 +31,3 @@ describe('week6', function(){
         });
     });
 });
-
-
-
-        // it('throw error if not 52', function(){
-        //     expect(function(){
-        //         doSomething(2, 2);
-        //     }).to.throw(Error);
-        // });
