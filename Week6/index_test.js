@@ -12,11 +12,11 @@ describe('week6', function(){
 
 describe('week6', function(){
     describe('#dealCards', function(){
-        it('deal hand of 26 cards', function(){
+        it('deal two hands of 26 cards', function(){
             const d = new Deck();
             d.createDeck();
             d.dealCards();
-            expect(d.hand1).length(26); 
+            expect(d.hand1 && d.hand2).length(26); 
         });
     });
 });

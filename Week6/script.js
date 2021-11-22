@@ -84,7 +84,7 @@ class Board {
     compareCards(){
       if( this.playedCards.length > 0){
       if(this.playedCards[0].value > this.playedCards[1].value){ 
-        this.scorep1 += 1; //add
+        this.scorep1 += 1;
         //return `Player 1 wins this round!`;
         console.log(`Player 1 wins this round!`);
         for(let h = 0; h < this.playedCards.length; h++){
