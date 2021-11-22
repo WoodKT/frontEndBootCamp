@@ -23,7 +23,7 @@ class Deck {
 
       for(var a = 0; a < suits.length; a++){
         for(var b = 0; b < ranks.length; b++){
-          this.cards.push( new Card(suits[a], ranks[b], values[b]));
+          this.cards.push( new Card(suits[a], ranks[b], values[b]));//should values[b], be different?
         }
       }
     }
@@ -45,7 +45,7 @@ class Deck {
   }
   let test = new Deck();
   test.createDeck();
-console.log(test.cards);
+  console.log(test.cards);
 
 class Board {
     constructor() {
@@ -66,22 +66,18 @@ class Board {
       if( this.newDeck.hand1.length > 0 && this.newDeck.hand2.length > 0){
         this.playedCards.push(this.newDeck.hand1.pop()); 
         this.playedCards.push(this.newDeck.hand2.pop()); 
-        return `Player 1 plays a ${this.playedCards[0].rank} of ${this.playedCards[0].suit}. Player 2 plays a ${this.playedCards[1].rank} of ${this.playedCards[1].suit}.`;
+        //return `Player 1 plays a ${this.playedCards[0].rank} of ${this.playedCards[0].suit}. Player 2 plays a ${this.playedCards[1].rank} of ${this.playedCards[1].suit}.`;
         console.log(`Player 1 plays a ${this.playedCards[0].rank} of ${this.playedCards[0].suit}. Player 2 plays a ${this.playedCards[1].rank} of ${this.playedCards[1].suit}.`);
       }
       else if (this.newDeck.hand1.length === 0){
         for(let f = 0; f < this.playedCards.length; f++){
         this.newDeck.hand2.unshift(this.playedCards[f]);
         }
-        return `Player 2 wins`;
-        console.log(`Player 2 wins`); //not doing anything?
       }
-      else if(this.newDeck.hand2.length === 0){
+      else { //if(this.newDeck.hand2.length === 0)
         for(let g = 0; g < this.playedCards.length; g++){
           this.newDeck.hand1.unshift(this.playedCards[g]);
         }
-        return `Player 1 wins`;
-        console.log(`Player 1 wins`); //not doing anything?
       }
     }
 
@@ -89,7 +85,7 @@ class Board {
       if( this.playedCards.length > 0){
       if(this.playedCards[0].value > this.playedCards[1].value){ 
         this.scorep1 += 1; //add
-        return `Player 1 wins this round!`;
+        //return `Player 1 wins this round!`;
         console.log(`Player 1 wins this round!`);
         for(let h = 0; h < this.playedCards.length; h++){
           this.newDeck.hand1.unshift(this.playedCards[h]);
@@ -98,15 +94,15 @@ class Board {
       }
       else if(this.playedCards[0].value < this.playedCards[1].value){ 
         this.scorep2 += 1;
-        return `Player 2 wins this round!`;
+        //return `Player 2 wins this round!`;
         console.log(`Player 2 wins this round!`);
         for(let i = 0; i < this.playedCards.length; i++){
           this.newDeck.hand2.unshift(this.playedCards[i]);
         }
         this.clear();
       }
-      else {  //if tie else if(this.playedCards[0].value == this.playedCards[1].value)
-        return `Oh no, a tie!`;
+      else {
+        //return `Oh no, a tie!`;
         console.log(`Oh no, a tie!`);
         for(let t = 0; t < this.playedCards.length; t++){
           this.newDeck.hand1.unshift(this.playedCards[t]); //check logic is good here
@@ -114,8 +110,8 @@ class Board {
         }
         this.clear();
       }
-      return `Player 1 has ${this.newDeck.hand1.length} card(s) and ${this.scorep1} point(s). Player 2 has ${this.newDeck.hand2.length} card(s) and ${this.scorep2} point(s).`;
-      console.log(`Player 1 has ${this.newDeck.hand1.length} card(s) and ${this.scorep1} point(s). Player 2 has ${this.newDeck.hand2.length} card(s) and ${this.scorep2} point(s).`); 
+      //return `Player 1 has ${this.newDeck.hand1.length} card(s) and ${this.scorep1} point(s). Player 2 has ${this.newDeck.hand2.length} card(s) and ${this.scorep2} point(s).`;
+      console.log(`Player 1 has ${this.scorep1} point(s). Player 2 has ${this.scorep2} point(s).`); 
       this.clear();
       }
     }
@@ -136,11 +132,11 @@ class Board {
     }
 
     if(this.scorep1 > this.scorep2){
-      return `Player 1 wins the game with ${this.scorep1} points!`;
+      //return `Player 1 wins the game with ${this.scorep1} points!`;
       console.log(`Player 1 wins the game with ${this.scorep1} points!`);
     }
     else {//(this.scorep1 < this.scorep2)
-      return `Player 2 wins the game with ${this.scorep2} points!`;
+      //return `Player 2 wins the game with ${this.scorep2} points!`;
       console.log(`Player 2 wins the game with ${this.scorep2} points!`);
     }
   }
@@ -148,4 +144,4 @@ class Board {
 
     let myBoard = new Board();
     myBoard.startBoard();
-    console.log(myBoard.playGame());
+    myBoard.playGame();
