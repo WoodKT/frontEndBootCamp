@@ -15,7 +15,7 @@
     <!-- following video links -->
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
     <!-- end -->
-    
+
 </head>
 
 
@@ -41,14 +41,17 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
     -->
 
-    <form class="row g-3">
+    <form class="row g-3 needs-validation" novalidate>
         <div class="col-md-6">
             <label for="inputEmail4" class="form-label">Email</label>
             <input type="email" class="form-control" id="inputEmail4">
         </div>
         <div class="col-md-6">
             <label for="inputPassword4" class="form-label">Password</label>
-            <input type="password" class="form-control" id="inputPassword4">
+            <input type="password" class="form-control" id="inputPassword4" aria-describedby="passwordHelpBlock">
+        <small id="passwordHelpBlock" class="form-text text-muted">
+          Your password must be 6-18 characters long, contain letters and numbers, and must not contain spaces, special charcters, or emojis
+        </small>
         </div>
         <div class="col-12">
             <label for="inputAddress" class="form-label">Address</label>
@@ -66,7 +69,57 @@
             <label for="inputState" class="form-label">State</label>
             <select id="inputState" class="form-select">
                 <option selected>Choose...</option>
-                <option>...</option>
+                <option value="1">Maine</option>
+                <option value="2">New Hampshire</option>
+                <option value="3">Vermont</option>
+                <option value="4">Rhode Island</option>
+                <option value="5">Massachusetts</option>
+                <option value="6">New Jersey</option>
+                <option value="7">Delaware</option>
+                <option value="8">Connecticut</option>
+                <option value="9">Pennsylvania</option>
+                <option value="10">Maryland</option>
+                <option value="11">Virginia</option>
+                <option value="12">North Carolina</option>
+                <option value="13">South Carolina</option>
+                <option value="14">Georgia</option>
+                <option value="15">Florida</option>
+                <option value="16">Mississippi</option>
+                <option value="17">Texas</option>
+                <option value="18">Louisiana</option>
+                <option value="19">Tennessee</option>
+                <option value="20">Kentucky</option>
+                <option value="21">Ohio</option>
+                <option value="22">Michigan</option>
+                <option value="23">Kansas</option>
+                <option value="24">Nebraska</option>
+                <option value="25">North Dakota</option>
+                <option value="26">South Dakota</option>
+                <option value="27">Wyoming</option>
+                <option value="28">Washington</option>
+                <option value="29">California</option>
+                <option value="30">Nevada</option>
+                <option value="31">Colorado</option>
+                <option value="32">New Mexico</option>
+                <option value="33">Arizona</option>
+                <option value="34">Oregon</option>
+                <option value="35">West Virginia</option>
+                <option value="36">New York</option>
+                <option value="37">Alaska</option>
+                <option value="38">Hawaii</option>
+                <option value="39">Montana</option>
+                <option value="40">Idaho</option>
+                <option value="41">Utah</option>
+                <option value="42">Oklahoma</option>
+                <option value="43">Arkansas</option>
+                <option value="44">Missouri</option>
+                <option value="45">Iowa</option>
+                <option value="46">Minnesota</option>
+                <option value="47">Wisconsin</option>
+                <option value="48">Illinois</option>
+                <option value="49">Indiana</option>
+                <option value="50">Alabama</option>
+
             </select>
         </div>
         <div class="col-md-2">
