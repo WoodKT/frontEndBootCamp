@@ -4,13 +4,54 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Baby Milestones</title>
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="node_modules/@fortawesome/fontawesome-free/css/all.css">
 </head>
+
 <body class="container">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Navbar</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Dropdown
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="#">Action</a></li>
+                  <li><a class="dropdown-item" href="#">Another action</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link disabled">Disabled</a>
+              </li>
+            </ul>
+            <form class="d-flex">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+          </div>
+        </div>
+      </nav>
 
     <br>
-    <div class="card">
+
+
+    <div class="card text-white bg-dark mb-3">
         <div class="card-body">
             <div class="row">
                 <div class="col-sm">
@@ -19,38 +60,67 @@
                         <input type="date" class="form-control" id="new-start-date">
                     </div>
                 </div>
-                <div class="col-sm">
-                    <div class="form-group">
-                        <label for="new-end-date">End Date</label>
-                        <input type="date" class="form-control" id="new-end-date">
-                    </div>
-                </div>
             </div>
             <div class="row">
                 <div class="col-sm">
                     <div class="form-group">
-                        <label for="new-event">Event</label>
+                        <label for="new-event">Milestone</label>
                         <input type="text" class="form-control" id="new-event" placeholder="Event">
                     </div>
                 </div>
             </div>
+            <br>
             <div>
-                <button id="add" class="btn btn-primary from-control">Create</button>
+                <button id="add" class="btn btn-primary from-control">Create Milestone</button>
             </div>
         </div>
     </div>
 
     <br>
+
     <table id="list" class="table table-dark table-striped">
         <tr>
             <th>Event</th>
             <th>Date Created</th>
             <th>Start Date</th>
-            <th>End Date</th>
             <th>Actions</th>
         </tr>
     </table>
 
+    <br>
+    <br>
+
+    <footer class="footer text-center">
+        <div class="container">
+            <div class="row">
+                <!-- Footer Location-->
+                <div class="col-lg-4 mb-5 mb-lg-0">
+                    <h4 class="text-uppercase mb-4">Location</h4>
+                    <p class="lead mb-0">
+                        1234 Main Drive
+                        <br/>
+                        Nashua, NH
+                    </p>
+                </div>
+                <!-- Footer Social Icons-->
+                <div class="col-lg-4 mb-5 mb-lg-0">
+                    <h4 class="text-uppercase mb-4">Around the Web</h4>
+                    <i class="fab fa-facebook"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-linkedin-in"></i>
+                    <i class="fab fa-google-plus-g"></i>
+                </div>
+                <!-- Footer About Text-->
+                <div class="col-lg-4">
+                    <h4 class="text-uppercase mb-4">About Website</h4>
+                    <p class="lead mb-0">
+                        Website free to use
+                        <a href="http://startbootstrap.com">Start Bootstrap</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
     <script src="script.js"></script>
     <script src="node_modules/jquery/dist/jquery.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
