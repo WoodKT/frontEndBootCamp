@@ -1,4 +1,3 @@
-//let round = 0;
 let gameStop = false;
 let turnState = 1;
 let gameStat = ['NO WINNER','','','','','','','','',''];
@@ -21,36 +20,14 @@ function onClick(id, action) {
 }
 
 function drawDOM() {
-    // clear the view, and re"draw" the table
     let tictactoeDiv = document.getElementById('board');
     for (let index=1; index<=9; index++ ) {
-        //reset each button to original value
         document.getElementById(`b-${index}`).innerHTML=' ';
     }
-    // if (round > 0) {
-    //     $('#restart-game').show();
-    // } else {
-    //     let lineBreak = document.createElement('br');
-    //     tictactoeDiv.appendChild(lineBreak);
-    //     lineBreak = document.createElement('br');
-    //     tictactoeDiv.appendChild(lineBreak);
-    //     let alert = document.createElement('alert');
-    //     alert.setAttribute('class', 'alert alert-success');
-    //     alert.setAttribute('role', 'alert');
-    //     alert.setAttribute('id', 'restart-game');
-    //     alert.innerHTML = 'Click Clear Board for a New Game!';
-    //     tictactoeDiv.appendChild(alert);
-    // }
-    // round++;
-//    setTimeout(() => $('#restart-game').hide(), 1000);
 }
-
-
-// Set-up an EventListener for each btn in the game.  
 
 for (let btnIndex=1; btnIndex <=9; btnIndex++) {
     onClick(`b-${btnIndex}`, () => {
-        // Change Button to display players symbol
         if (!gameStop) {
             let headerText = document.getElementById('turn');
             console.log(gameStat);
@@ -68,8 +45,6 @@ for (let btnIndex=1; btnIndex <=9; btnIndex++) {
                     headerText.innerHTML = `Turn #${turnState+1}: X's turn`;
                 }
                 turnState++;
-
-
 
                 let winner = checkForWinner();
                 console.log(winner);
