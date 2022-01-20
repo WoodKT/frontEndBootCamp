@@ -1,4 +1,4 @@
-//let round = 0;
+let round = 0;
 let gameStop = false;
 let turnState = 1;
 let gameStat = ['NO WINNER','','','','','','','','',''];
@@ -25,31 +25,31 @@ function drawDOM() {
     let tictactoeDiv = document.getElementById('board');
     for (let index=1; index<=9; index++ ) {
         //reset each button to original value
-        document.getElementById(`b-${index}`).innerHTML=' ';
+        document.getElementById(`s-${index}`).innerHTML=index;
     }
-    // if (round > 0) {
-    //     $('#restart-game').show();
-    // } else {
-    //     let lineBreak = document.createElement('br');
-    //     tictactoeDiv.appendChild(lineBreak);
-    //     lineBreak = document.createElement('br');
-    //     tictactoeDiv.appendChild(lineBreak);
-    //     let alert = document.createElement('alert');
-    //     alert.setAttribute('class', 'alert alert-success');
-    //     alert.setAttribute('role', 'alert');
-    //     alert.setAttribute('id', 'restart-game');
-    //     alert.innerHTML = 'Click Clear Board for a New Game!';
-    //     tictactoeDiv.appendChild(alert);
-    // }
-    // round++;
-//    setTimeout(() => $('#restart-game').hide(), 1000);
+    if (round > 0) {
+        $('#restart-game').show();
+    } else {
+        let lineBreak = document.createElement('br');
+        tictactoeDiv.appendChild(lineBreak);
+        lineBreak = document.createElement('br');
+        tictactoeDiv.appendChild(lineBreak);
+        let alert = document.createElement('alert');
+        alert.setAttribute('class', 'alert alert-success');
+        alert.setAttribute('role', 'alert');
+        alert.setAttribute('id', 'restart-game');
+        alert.innerHTML = 'Tic-Tac-Toe Game has been restarted!';
+        tictactoeDiv.appendChild(alert);
+    }
+    gameId++;
+    setTimeout(() => $('#restart-game').hide(), 1000);
 }
 
 
 // Set-up an EventListener for each btn in the game.  
 
 for (let btnIndex=1; btnIndex <=9; btnIndex++) {
-    onClick(`b-${btnIndex}`, () => {
+    onClick(`s-${btnIndex}`, () => {
         // Change Button to display players symbol
         if (!gameStop) {
             let headerText = document.getElementById('turn');
@@ -57,12 +57,12 @@ for (let btnIndex=1; btnIndex <=9; btnIndex++) {
             if (gameStat[btnIndex] == '') {
                 console.log(`Turn #${turnState}:`);  
                 if (turnState % 2) {
-                    document.getElementById(`b-${btnIndex}`).innerHTML = 'X'
+                    document.getElementById(`s-${btnIndex}`).innerHTML = 'X'
                     gameStat[btnIndex] = 'X';
                     console.log(`\t\t\t X's turn!`);
                     headerText.innerHTML = `Turn #${turnState+1}: O's turn`;
                 } else {
-                    document.getElementById(`b-${btnIndex}`).innerHTML = 'O'
+                    document.getElementById(`s-${btnIndex}`).innerHTML = 'O'
                     gameStat[btnIndex] = 'O';
                     console.log(`\t\t\t O's turn!`);
                     headerText.innerHTML = `Turn #${turnState+1}: X's turn`;
@@ -76,7 +76,21 @@ for (let btnIndex=1; btnIndex <=9; btnIndex++) {
                 if (winner != '') {
                     let headerText = document.getElementById('turn');
                     headerText.innerHTML = `Game over!  ${winner}`;
-                    console.log(`Game over! ${winner}`);
+                    console.log(`Game over! ${winner}`); 
+                    if (round > 0) {
+                        $('#game-over').show();
+                    } else {
+                        let tictactoeDiv = document.getElementById('board');
+                        let lineBreak = document.createElement('br');
+                        tictactoeDiv.appendChild(lineBreak);
+                        let gameOverAlert = document.createElement('alert');
+                        gameOverAlert.setAttribute('class', 'alert alert-success');
+                        gameOverAlert.setAttribute('role', 'alert');
+                        gameOverAlert.setAttribute('id', 'game-over');
+                        gameOverAlert.innerHTML = 'Game ended!';
+                        tictactoeDiv.appendChild(gameOverAlert);  
+                    }
+                    setTimeout(() => $('#game-over').hide(), 3000);
                 }
                 
             } else {
@@ -108,7 +122,7 @@ function checkForWinner() {
                 && (gameStat[1] !== '')) {
         winner = `Winner is ${gameStat[1]}`;
         gameStop = true;
-    } else if ( (gameStat[2] === gameStat[5]) && (gameStat[2] === gameStat[8])
+    } else if ( (gameStat[2] === gameStas[5]) && (gameStat[2] === gameStat[8])
                 && (gameStat[2] !== '')) {
         winner = `Winner is ${gameStat[2]}`;
         gameStop = true;

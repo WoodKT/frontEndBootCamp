@@ -1,0 +1,17 @@
+.col {
+    width: 100px;
+    height: 150px;
+    border: 5px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.col:hover {
+    background: rgb(174, 244, 255);
+    color: rgb(108, 108, 108);
+}
+
+h1 {
+    text-align: center;
+}
