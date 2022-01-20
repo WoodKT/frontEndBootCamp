@@ -18,7 +18,6 @@ function onClick(id, action) {
 }
 
 function drawDOM() {
-    let ticTac = document.getElementById('board');
     for (let i=1; i<=9; i++ ) {
         document.getElementById(`b-${i}`).innerHTML=' ';
     }
@@ -45,15 +44,9 @@ for (let moveI=1; moveI <=9; moveI++) {
                 if (lead != '') {
                     let headerText = document.getElementById('turn');
                     headerText.innerHTML = `Game over!  ${lead}`;
-                }
-                
-            } else {
-                console.log('error');
+                }  
             }
-        } else {
-            turnState++;
-            console.log('Game Over');
-        }
+        } 
     });
 }
 

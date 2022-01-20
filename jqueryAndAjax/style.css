@@ -12,6 +12,7 @@
     color: rgb(108, 108, 108);
 }
 
-h1 {
+h1,
+h4 {
     text-align: center;
 }
