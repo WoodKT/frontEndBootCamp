@@ -101,8 +101,8 @@ class DOMManager {
             }
         }
 
-        static deleteAction(kidId, actionName) { //possibly actionId to actionName
-            for (let i = 0; i < this.kids.length; i++) { //i and i++?
+        static deleteAction(kidId, actionName) { 
+            for (let i = 0; i < this.kids.length; i++) { 
                 const kid = this.kids[i];
                 if (kid._id == kidId) {
                     for (let i=0; i < kid.actions.length; i++) {
@@ -113,7 +113,7 @@ class DOMManager {
                             .done(() => {//changed this to done
                                 return KidService.getAllKids();
                             })
-                            .done(kids => this.render(kids)); //changed then to done
+                            .done(kids => this.render(kids)); 
                         }
                     }
                 }
@@ -168,7 +168,7 @@ class DOMManager {
                     <span id="name-${action._id}"><strong>Name: </strong> ${action.name}</span>
                     <span id="name-${action._id}"><strong>Time: </strong> ${action.time}</span>
                     <button class="btn btn-danger" onclick="DOMManager.deleteAction('${kid._id}', '${action._id}')">Delete Action</button>`
-                ); //remove semi colon?
+                ); 
             }
         }
     }
