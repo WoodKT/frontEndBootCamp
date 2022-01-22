@@ -1,7 +1,3 @@
-//const {stringify} = require("/mocha/lib/utils");
-
-//const { Button } = require("bootstrap");
-
 class House {
     constructor(name) {
         this.name = name;
@@ -99,7 +95,7 @@ class DOMManager {
                 if (house._id == houseId) {
                     for (let room of house.rooms) {
                         if (room._id == roomId) {
-                            house.rooms.splice(house.room.indexOf(room), 1);
+                            house.rooms.splice(house.rooms.indexOf(room), 1);
                             HouseService.updateHouse(house)
                             .then(() => {
                                 return HouseService.getAllHouses();
