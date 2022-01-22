@@ -1,3 +1,66 @@
+// https://crudcrud.com/Dashboard/2b721f5c376449c1a407919d67b3a9f1
+// // Requiring module // fix? https://sebhastian.com/javascript-require-is-not-defined/
+// const express = require('express');
+// const cors = require('cors');
+  
+// // Creating express app object
+// const app = express();
+  
+// // CORS is enabled for the selected origins
+// let corsOptions = {
+//     origin: 'https://crudcrud.com/api/2b721f5c376449c1a407919d67b3a9f1/kids'
+// };
+// // Using cors as a middleware
+// app.get('/crud-articles',cors(corsOptions),
+//     (req,res) => res.json('crud-articles'))
+  
+// // Port number
+// const port = 5000;
+  
+// // Server setup
+// app.listen(port, () => `Server running on port ${port}`);
+
+// //https://www.geeksforgeeks.org/how-to-deal-with-cors-error-in-express-node-js-project/?ref=rp
+
+//const http = require("http");
+import http from 'http';
+const port = 8080;
+
+http
+  .createServer((req, res) => {
+    const headers = {
+      "Access-Control-Allow-Origin": "http://localhost:8080",
+      "Access-Control-Allow-Methods": "OPTIONS, POST, GET",
+      "Access-Control-Max-Age": 2592000, // 30 days
+      /** add other headers as per requirement */
+    };
+
+    if (req.method === "OPTIONS") {
+      res.writeHead(204, headers);
+      res.end();
+      return;
+    }
+
+    if (["GET", "POST"].indexOf(req.method) > -1) {
+      res.writeHead(200, headers);
+      res.end("Hello World");
+      return;
+    }
+
+    res.writeHead(405, headers);
+    res.end(`${req.method} is not allowed for the request.`);
+  })
+  .listen(port);
+
+  const headers = {
+    "Access-Control-Allow-Origin": "http://localhost:8080",
+    "Access-Control-Allow-Methods": "OPTIONS, POST, GET",
+    "Access-Control-Max-Age": 2592000, // 30 days
+    /** add other headers too */
+  };
+//https://bigcodenerd.org/enable-cors-node-js-without-express/
+//https://socket.io/docs/v4/handling-cors/ //not yet tried
+
 class Kid {
     constructor(name) {
         this.name = name;
@@ -17,7 +80,7 @@ class Action {
 }
 
 class KidService {
-    static url = "https://crudcrud.com/api/2b721f5c376449c1a407919d67b3a9f1/kids";
+    static url = "http://localhost:8080";
 
     static getAllKids() {
         return $.get(this.url);
@@ -78,7 +141,6 @@ class DOMManager {
         }
 
     static deleteKid(id) {
-        //missing 
         console.log(`Deleting a kid`);
         KidService.deleteKid(id)
             .done(() => {
@@ -92,7 +154,6 @@ class DOMManager {
                 if (kid._id == id) {
                     kid.actions.push(new Action($(`#${kid._id}-action-name`).val(), $(`#${kid._id}-action-time`).val()));
                     KidService.updateKid(kid)
-    //THIS THEN IS THE ISSUE
                         .done(() => {
                             return KidService.getAllKids();
                         })
@@ -110,7 +171,7 @@ class DOMManager {
                         if (action.name == actionName) {
                             kid.actions.splice(i, 1);
                             KidService.updateKid(kid)
-                            .done(() => {//changed this to done
+                            .done(() => {
                                 return KidService.getAllKids();
                             })
                             .done(kids => this.render(kids)); 
@@ -165,9 +226,9 @@ class DOMManager {
             for(let action of kid.actions) {
                 $(`#${kid._id}`).find('.card-body').append(
                     `<p>
-                    <span id="name-${action._id}"><strong>Name: </strong> ${action.name}</span>
-                    <span id="name-${action._id}"><strong>Time: </strong> ${action.time}</span>
-                    <button class="btn btn-danger" onclick="DOMManager.deleteAction('${kid._id}', '${action._id}')">Delete Action</button>`
+                    <span id="name-${action.name}"><strong>Name: </strong> ${action.name}</span>
+                    <span id="time-${action.name}"><strong>Time: </strong> ${action.time}</span>
+                    <button class="btn btn-danger" onclick="DOMManager.deleteAction('${kid._id}', '${action.name}')">Delete Action</button>`
                 ); 
             }
         }
