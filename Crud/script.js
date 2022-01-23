@@ -1,66 +1,3 @@
-// https://crudcrud.com/Dashboard/2b721f5c376449c1a407919d67b3a9f1
-// // Requiring module // fix? https://sebhastian.com/javascript-require-is-not-defined/
-// const express = require('express');
-// const cors = require('cors');
-  
-// // Creating express app object
-// const app = express();
-  
-// // CORS is enabled for the selected origins
-// let corsOptions = {
-//     origin: 'https://crudcrud.com/api/2b721f5c376449c1a407919d67b3a9f1/kids'
-// };
-// // Using cors as a middleware
-// app.get('/crud-articles',cors(corsOptions),
-//     (req,res) => res.json('crud-articles'))
-  
-// // Port number
-// const port = 5000;
-  
-// // Server setup
-// app.listen(port, () => `Server running on port ${port}`);
-
-// //https://www.geeksforgeeks.org/how-to-deal-with-cors-error-in-express-node-js-project/?ref=rp
-
-//const http = require("http");
-import http from 'http';
-const port = 8080;
-
-http
-  .createServer((req, res) => {
-    const headers = {
-      "Access-Control-Allow-Origin": "http://localhost:8080",
-      "Access-Control-Allow-Methods": "OPTIONS, POST, GET",
-      "Access-Control-Max-Age": 2592000, // 30 days
-      /** add other headers as per requirement */
-    };
-
-    if (req.method === "OPTIONS") {
-      res.writeHead(204, headers);
-      res.end();
-      return;
-    }
-
-    if (["GET", "POST"].indexOf(req.method) > -1) {
-      res.writeHead(200, headers);
-      res.end("Hello World");
-      return;
-    }
-
-    res.writeHead(405, headers);
-    res.end(`${req.method} is not allowed for the request.`);
-  })
-  .listen(port);
-
-  const headers = {
-    "Access-Control-Allow-Origin": "http://localhost:8080",
-    "Access-Control-Allow-Methods": "OPTIONS, POST, GET",
-    "Access-Control-Max-Age": 2592000, // 30 days
-    /** add other headers too */
-  };
-//https://bigcodenerd.org/enable-cors-node-js-without-express/
-//https://socket.io/docs/v4/handling-cors/ //not yet tried
-
 class Kid {
     constructor(name) {
         this.name = name;
@@ -80,8 +17,8 @@ class Action {
 }
 
 class KidService {
-    static url = "http://localhost:8080";
-
+    static url = "https://crudcrud.com/api/20795a5226174b9e896472ecfb5b150d/kids";
+//https://ancient-taiga-31359.herokuapp.com/api/houses
     static getAllKids() {
         return $.get(this.url);
     }
@@ -97,23 +34,22 @@ class KidService {
             contentType: 'application/json',
             data: JSON.stringify(kid),
             type: 'POST'
-        });
-    }
+        });   
+     }
 
     static updateKid(kid) {
         return $.ajax({
-            url : `${this.url}/${kid._id}`,
-            dataType: 'json',
+            url: `${this.url}/${kid._id}`,
+            dataType: `json`,
             async: false,
             cache: false,
             contentType: 'application/json',
             data: JSON.stringify({
-                "name" : store.name,
-                "items" : store.actions}),
-            type: 'PUT'
-        }); //remove semicolon?
+                "name" : kid.name,
+                "actions" : kid.actions}),
+            type: 'PUT' 
+        }); 
     }
-
 
     static deleteKid(id) {
         return $.ajax({
@@ -127,12 +63,10 @@ class DOMManager {
     static kids;
 
     static getAllKids() {
-        console.log("DOMManager.getAllKids()");
         KidService.getAllKids().then(kids => this.render(kids));
     }
 
     static createKid(name) {
-        console.log(`Creating a kid: ${name}`);
         KidService.createKid(new Kid(name))
             .then(() => {
                 return KidService.getAllKids();
@@ -141,9 +75,8 @@ class DOMManager {
         }
 
     static deleteKid(id) {
-        console.log(`Deleting a kid`);
         KidService.deleteKid(id)
-            .done(() => {
+            .done(() => { //then to done
                 return KidService.getAllKids();
             })
             .then((kids) => this.render(kids));
@@ -154,55 +87,40 @@ class DOMManager {
                 if (kid._id == id) {
                     kid.actions.push(new Action($(`#${kid._id}-action-name`).val(), $(`#${kid._id}-action-time`).val()));
                     KidService.updateKid(kid)
-                        .done(() => {
+                        .done(() => {//then to done
                             return KidService.getAllKids();
+                        
                         })
-                    .done(kids => this.render(kids));
+                        .done(kids => this.render(kids));//removed () around first kids
                 }
             }
         }
-
-        static deleteAction(kidId, actionName) { 
-            for (let i = 0; i < this.kids.length; i++) { 
+    
+        static deleteAction(kidId, actionName) {
+            for (let i = 0; i < this.kids.length; i++) {
                 const kid = this.kids[i];
                 if (kid._id == kidId) {
-                    for (let i=0; i < kid.actions.length; i++) {
+                    for (let i = 0; i < kid.actions.length; i++) {
                         const action = kid.actions[i];
                         if (action.name == actionName) {
                             kid.actions.splice(i, 1);
                             KidService.updateKid(kid)
-                            .done(() => {
-                                return KidService.getAllKids();
-                            })
-                            .done(kids => this.render(kids)); 
+                                .done(() => {
+                                    return KidService.getAllKids();
+                                })
+                                .done(kids => this.render(kids));
                         }
                     }
                 }
             }
         }
-        // static deleteAction(kidId, actionId) { //possibly actionId to actionName //original
-        //     for (let kid of this.kids) { //i and i++?
-        //         if (kid._id == kidId) {
-        //             for (let action of kid.actions) {
-        //                 if (action._id == actionId) {
-        //                     kid.actions.splice(kid.actions.indexOf(action), 1);
-        //                     KidService.updateKid(kid)
-        //                     .done(() => {//changed this to done
-        //                         return KidService.getAllKids();
-        //                     })
-        //                     .done(kids => this.render(kids)); //changed then to done
-        //                 }
-        //             }
-        //         }
-        //     }
-        // }
 
     static render(kids) {
         this.kids = kids;
         $('#app').empty();
         for (let kid of kids) {
             $('#app').prepend(
-                `<div id="${kid._id}" class="card">
+                `<br><div id="${kid._id}" class="card">
                     <div class="card-header">
                         <h2>${kid.name}</h2>
                         <button class="btn btn-danger" onclick="DOMManager.deleteKid('${kid._id}')">Delete</button>
@@ -228,16 +146,16 @@ class DOMManager {
                     `<p>
                     <span id="name-${action.name}"><strong>Name: </strong> ${action.name}</span>
                     <span id="time-${action.name}"><strong>Time: </strong> ${action.time}</span>
-                    <button class="btn btn-danger" onclick="DOMManager.deleteAction('${kid._id}', '${action.name}')">Delete Action</button>`
-                ); 
+                    <button class="btn btn-success" onclick="DOMManager.deleteAction('${kid._id}', '${action.name}')">Delete Action</button>`
+                );
             }
         }
     }
 }
 
-$('#create-new-kid').on('click', () => {
+$('#create-new-kid').on('click', () => {  
     DOMManager.createKid($('#new-kid-name').val());
-    $('#new-kid-name').val(' ');
+    $('#new-kid-name').val('');
 });
 
 DOMManager.getAllKids();
