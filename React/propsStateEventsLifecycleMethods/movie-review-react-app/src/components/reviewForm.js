@@ -1,6 +1,8 @@
 //a form at the bottom of a Movie component that allows users to leave reviews. When submitted, the review should be added to the movie. All this data can be stored in an array, no networking or database needed for this assignment.
 import React from "react";
 import User from "./user";
+//import Review from "./review";
+import SubmitButton from "./submit-button";
 
 export default class Form extends React.Component {
     render() {
@@ -12,8 +14,9 @@ export default class Form extends React.Component {
                 </div>
                 <div className="card-body border border-3 border-dark">
                     <User />
+                    <Review />
                 <div>
-                    <button type="submit" className="btn btn-success">Submit</button>
+                    <SubmitButton />
                 </div>
 
                 </div>
