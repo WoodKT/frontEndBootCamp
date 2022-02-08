@@ -7,9 +7,7 @@ import NewsFeed from './components/news-feed';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
-//  <React.StrictMode>
     <NewsFeed />,
-//  </React.StrictMode>,
   document.getElementById('root')
 );
 
