@@ -1,16 +1,19 @@
 //a component that represents movie data (i.e. image, synopsis, audience, etc…)
 import React from "react";
 import ReviewList from "./reviewList";
+import Stars from "./stars";
 
 export default class MovieData extends React.Component {
     constructor(props){
         super(props);
         this.state ={
             title: props.title,
+            stars: props.stars,
             synopsis: props.synopsis,
             audience: props.audience,
             reviews: [] 
         };
+//        this.setRating = this.setRating.bind(this);
     }
 
     render() {
