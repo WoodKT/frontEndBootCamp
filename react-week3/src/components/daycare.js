@@ -1,5 +1,5 @@
 import React from "react";
-import {NewKidForm} from "./NewKidForm";
+import {NewKidForm} from "./NewKidForm.js";
 
 export const Daycare = (props) => {
     const {daycare, updateDaycare} = props;

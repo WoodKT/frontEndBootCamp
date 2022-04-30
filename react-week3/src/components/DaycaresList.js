@@ -1,5 +1,5 @@
 import React from 'react';
-import { Daycare } from './daycare.js'; 
+import { Daycare } from './Daycare.js'; 
 import { daycaresApi } from '../rest/DaycaresApi.js';
 
 export class DaycaresList extends React.Component {

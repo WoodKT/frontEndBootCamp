@@ -1,4 +1,4 @@
-const DAYCARES_ENDPOINT = 'https://crudcrud.com/api/f0c9bb966e144654b6102d56e2cbb557';
+const DAYCARES_ENDPOINT = 'https://crudcrud.com/api/f0c9bb966e144654b6102d56e2cbb557/daycares';
 
 class DaycaresApi {
     get = async () => {
