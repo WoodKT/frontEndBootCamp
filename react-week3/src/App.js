@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import { DaycaresList } from './components/DaycaresList.js';
 
 class App extends Component {
