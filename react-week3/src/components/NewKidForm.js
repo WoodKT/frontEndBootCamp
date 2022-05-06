@@ -23,15 +23,13 @@ export const NewKidForm = (props) => {
     return (
         <div>
             <h4>Add a new kid</h4>
-             <form onSubmit={onSubmit}> {/*On submit, call onSubmit() method */}
-             {/* Input name field */}
+             <form onSubmit={onSubmit}> 
                 <input
                     type='text'
                     placeholder='name'
                     onChange={(e) => setName(e.target.value)}
                     value={name}
                 />&nbsp;
-                {/* Input dob field */}
                 <input
                     type='text'
                     placeholder='dob'
@@ -39,6 +37,7 @@ export const NewKidForm = (props) => {
                     value={dob}
                 />&nbsp;
                 <button type='submit'>Add Kid</button> 
+                <br />
             </form>
         </div>
     )
