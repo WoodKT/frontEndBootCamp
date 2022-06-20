@@ -6,6 +6,19 @@ export class DaycaresList extends React.Component {
     state = {
         daycares: []
     };
+//    constructor(props) { // https://medium.com/edonec/state-in-react-an-overview-a182675cee2c
+//        super(props);
+//        this.state = {
+            // daycares: [ {
+            //     daycareName: "Spirit",
+            //     daycareId: daycare._id //needs work
+            // },
+            // {
+            //     daycareName: "A Little Princess",
+            //     daycareId: daycare._id //needs work
+            // }]
+//        };
+//    };
 
     componentDidMount() {
         this.fetchDaycares();

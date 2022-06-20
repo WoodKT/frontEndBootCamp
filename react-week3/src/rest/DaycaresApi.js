@@ -1,4 +1,4 @@
-const DAYCARES_ENDPOINT = 'https://crudcrud.com/api/9a10df0bcdc24f3b862f1e5f20a61ada';
+const DAYCARES_ENDPOINT = 'https://ancient-taiga-31359.herokuapp.com/api/houses';
 
 class DaycaresApi {
     get = async () => {
