@@ -1,121 +1,68 @@
-import React from "react";
-import Review from "./review";
-import Stars from "./stars";
-import SubmitButton from "./submit-button";
+import React, { useState } from "react";
+import { Button, Form } from "react-bootstrap";
 
 export default class ReviewForm extends React.Component {
     constructor(props) {
         super(props);
-        this.state ={
-          review: {
-            user: '',
-            movieReview: ''
-          },
-          reviews: []
-      };
+        this.state = {
+            userReview: '',
+          }
     
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
       }
   
-    handleChange(event) { 
-      const {value, name} = event.target;
-      this.setState({
-        review: {
-          ...this.state.review,
-          [name]: value
-        }
-      });
-    };
+  resetReview() {
+    this.setState({
+      userReview: ''
+    });
+  }
   
     handleSubmit(event) {
-        if(this.state.review !== ''){
-          this.state.reviews.push(new Review(this.state.user, this.state.movieReview))
-        }
-        event.preventDefault();    
+        event.preventDefault();   
+      this.props.onFormSubmit(this.state);
+      this.resetReview(); 
     }
-  
+
+      handleChange(e) { 
+      let target = e.target;
+      let name = target.name;
+      let value = target.value;
+      this.setState({
+        [name]: value
+    });
+    }
+
     render() { 
       return ( 
-        <div className="card border-info w-75">
-          <form onSubmit={this.handleSubmit}> 
-              <div className="card-header bg-info text-center">
-                <h3>Review:</h3>
-              </div>
-  
-              <div className="card-body">
-                <div className="form-group">
-                <label>
-                    User:
-                    <input 
-                    type="text" required
-                    name="user"
-                    placeholder="User"
-                    className="form-control"
-                    value={this.state.review.user} 
-                    onChange={this.handleChange}/>
-                </label>
-                </div>
-  
-                <br />
-  
-                <div className="form-group">
-                <label>
-                    Review:
-                    <textarea 
-                    name="movieReview"
-                    placeholder="Review"
-                    className="form-control"
-                    value={this.state.review.movieReview}
-                    onChange={this.handleChange} />
-                </label>
-                </div>
+        <Form className="reviewFormClass">
 
-                <div className="form-group">
-                    <Stars />
-                </div>
+                <Form.Group className="mb-3" >
+                  <Form.Label>Username</Form.Label>
+                  <Form.Control as="textarea" id="userName" name="userName" onChange={this.handleChange} placeholder='Username' rows={1} value={this.userName}/>
+                </Form.Group>
 
-              </div>
-  
-                <br />
-  
-              <div className="card-footer">
-                <div className="form-group">
-                    <SubmitButton />
+                <Form.Group className="mb-3" >
+                  <Form.Label>New Review</Form.Label>
+                  <Form.Control as="textarea" id="userReview" name="userReview" onChange={this.handleChange} placeholder='Write a review for the movie here!' rows={3} value={this.userReview}/>
+                </Form.Group>
+
+                <Form.Group className="mb-3" >
+                  <Form.Label>Rate</Form.Label>
+                  <Form.Control as="button" id="rating" name="rating" onChange={this.handleChange} placeholder="" rows={3} value={this.stars}/>
+                </Form.Group>
+
+                <div className="d-grid gap-2">
+                  <Button variant="primary" onClick={this.handleSubmit}>Submit Review</Button>
                 </div>
-              </div>
-          </form>
-        </div>
-      );
+                <input type='hidden' name='movieId' id='movieId' value={this.id}/>
+                <input type='hidden' id='showMovieId' placeholder={this.id}/>
+              </Form>
+      )
     }
   }
 
+// https://blog.devgenius.io/create-a-multi-step-form-with-reactjs-322aa97a2968
 
-//////////////////
-// import React from "react";
-// import User from "./user";
-// //import Review from "./review";
-// import SubmitButton from "./submit-button";
-
-// export default class ReviewForm extends React.Component {
-//     render() {
-//         return (
-//             <div className="container">
-//             <div className="card w-25 position-absolute top-50 start-50 translate-middle">
-//                 <div className="card-header bg-dark text-white border border-5 border-dark">
-//                     <h3>Review:</h3>
-//                 </div>
-//                 <div className="card-body border border-3 border-dark">
-//                     <User />
-//                     <Review />
-//                 <div>
-//                     <SubmitButton />
-//                 </div>
-
-//                 </div>
-
-//             </div>
-//             </div>
-//         );
-//     }
-// }
+// https://www.agirl.codes/complete-guide-build-react-forms-with-usestate-hook
+//https://github.com/Kellswork/contact-info
