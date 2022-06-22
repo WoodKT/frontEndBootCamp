@@ -7,6 +7,7 @@ export default class Review extends React.Component {
             this.text = props.text;
             this.userName = props.userName;
             this.userReview = props.userReview;
+            this.userRating = props.userRating;
             this.key = props.key;
     }
 
@@ -14,7 +15,7 @@ export default class Review extends React.Component {
         return (
             <Card>
                 <Card.Header>{this.userName}</Card.Header>
-                <Card.Body>{this.userReview}</Card.Body>
+                <Card.Body>{this.userReview} {this.userRating} </Card.Body>
             </Card>
         );
     }
