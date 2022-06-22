@@ -62,7 +62,21 @@ export default class ReviewForm extends React.Component {
     }
   }
 
+
+  // https://blog.devgenius.io/react-bootstrap-creating-controlled-forms-to-add-and-update-data-with-a-flexible-number-of-inputs-6d2e4e6977c7
+  
 // https://blog.devgenius.io/create-a-multi-step-form-with-reactjs-322aa97a2968
+
+//https://medium.com/@aaron_schuyler/building-react-forms-with-usestate-2cf45a3110ac
+
+//https://therichpost.com/reactjs-star-rating-working-demo-part-1-star-rating-form/
 
 // https://www.agirl.codes/complete-guide-build-react-forms-with-usestate-hook
 //https://github.com/Kellswork/contact-info
+
+//https://www.npmjs.com/package/react-star-rating-input
+
+//https://stackoverflow.com/questions/49622643/how-to-get-the-value-using-react-rating-component-in-my-form
+
+//https://bootstrap-vue.org/docs/components/form-rating
+

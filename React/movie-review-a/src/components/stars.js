@@ -30,5 +30,6 @@ export default Stars;
    //https://javascript.plainenglish.io/react-5-star-rating-system-4fa81b71cac9
    //https://www.geeksforgeeks.org/how-to-create-a-rating-component-in-reactjs/
    //https://www.30secondsofcode.org/react/s/star-rating
+   //https://w3collective.com/react-star-rating-component/
 
    //https://www.section.io/engineering-education/building-a-custom-user-reviews-page-in-react-typescript-and-reactstrap/
