@@ -1,65 +1,74 @@
 import React, { useState } from "react";
+import "./stars.css"
 import { Button, Form } from "react-bootstrap";
 
-export default class ReviewForm extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            userReview: '',
-          }
-    
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
-      }
-  
-  resetReview() {
-    this.setState({
-      userReview: ''
-    });
-  }
-  
-    handleSubmit(event) {
-        event.preventDefault();   
-      this.props.onFormSubmit(this.state);
-      this.resetReview(); 
-    }
+export default function ReviewForm({addReview}) {
 
-      handleChange(e) { 
-      let target = e.target;
-      let name = target.name;
-      let value = target.value;
-      this.setState({
-        [name]: value
-    });
-    }
+  const [userReview, setUserReview] = useState({
+    username: "",
+    userText: "",
+    rating:"",
+  });
 
-    render() { 
+  const handleChange = (event) => {
+    setUserReview({ ...userReview, [event.target.username]: event.target.value });
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    addReview(userReview);
+    setUserReview({ username: "", userText: "", rating: "" });
+  };
+
       return ( 
-        <Form className="reviewFormClass">
+        <div className="form-container">
+        <form onSubmit={handleSubmit}> 
+          <div>
+            <h3>Review Form</h3>
+          </div>
+          <div>
+          <div>
+            <label>Username</label> <br/>
+            <input
+              type="text"
+              name="username"
+              placeholder="Username"
+              value={userReview.name}
+              onChange={handleChange}
+            />
+          </div>
+          <div>
+            <label>Text Review</label> <br/>
+            <input
+              type="text"
+              name="userText"
+              placeholder="Enter your review here"
+              value={userReview.userText}
+              onChange={handleChange}
+            />
+          </div>
+          <div>
+          <div className="rating">
+            <input type="radio" id="star5" name="rating" value="5" />
+            <label className="star" htmlFor="star5" title="Awesome" aria-hidden="true"></label>
+            <input type="radio" id="star4" name="rating" value="4" />
+            <label className="star" htmlFor="star4" title="Great" aria-hidden="true"></label>
+            <input type="radio" id="star3" name="rating" value="3" />
+            <label className="star" htmlFor="star3" title="Very good" aria-hidden="true"></label>
+            <input type="radio" id="star2" name="rating" value="2" />
+            <label className="star" htmlFor="star2" title="Good" aria-hidden="true"></label>
+            <input type="radio" id="star1" name="rating" value="1" />
+            <label className="star" htmlFor="star1" title="Bad" aria-hidden="true"></label>
+          </div>
+          </div>
+          </div>
 
-                <Form.Group className="mb-3" >
-                  <Form.Label>Username</Form.Label>
-                  <Form.Control as="textarea" id="userName" name="userName" onChange={this.handleChange} placeholder='Username' rows={1} value={this.userName}/>
-                </Form.Group>
-
-                <Form.Group className="mb-3" >
-                  <Form.Label>New Review</Form.Label>
-                  <Form.Control as="textarea" id="userReview" name="userReview" onChange={this.handleChange} placeholder='Write a review for the movie here!' rows={3} value={this.userReview}/>
-                </Form.Group>
-
-                <Form.Group className="mb-3" >
-                  <Form.Label>Rate</Form.Label>
-                  <Form.Control as="button" id="rating" name="rating" onChange={this.handleChange} placeholder="" rows={3} value={this.stars}/>
-                </Form.Group>
-
-                <div className="d-grid gap-2">
-                  <Button variant="primary" onClick={this.handleSubmit}>Submit Review</Button>
-                </div>
-                <input type='hidden' name='movieId' id='movieId' value={this.id}/>
-                <input type='hidden' id='showMovieId' placeholder={this.id}/>
-              </Form>
+          <div>
+            <button className="btn btn-primary" type="submit">Submit Review</button>
+          </div>
+        </form>
+      </div>
       )
-    }
   }
 
 {/* render() { 
