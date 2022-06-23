@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import ReviewList from "./reviewList";
-import Stars from "./stars";
 import { Card } from "react-bootstrap";
 
 export default class MovieData extends React.Component {
@@ -34,9 +33,6 @@ export default class MovieData extends React.Component {
                   <ReviewList />
               </div>
             </Card.Body>
-            {/* <Card.Footer>
-              <Stars />
-            </Card.Footer> */}
           </Card>
         )
     }

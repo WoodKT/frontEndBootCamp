@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./stars.css"
 import { Button, Form } from "react-bootstrap";
 
-export default function ReviewForm({addReview}) {
+export default function UserForm({addReview}) {
 
   const [userReview, setUserReview] = useState({
     username: "",
@@ -49,15 +49,15 @@ export default function ReviewForm({addReview}) {
           </div>
           <div>
           <div className="rating">
-            <input type="radio" id="star5" name="rating" value="5" />
-            <label className="star" htmlFor="star5" title="Awesome" aria-hidden="true"></label>
-            <input type="radio" id="star4" name="rating" value="4" />
+            <input type="radio" id="star5" name="rating" value="5" onChange={handleChange} />
+            <label className="star" htmlFor="star5" title="Awesome" aria-hidden="true" ></label>
+            <input type="radio" id="star4" name="rating" value="4" onChange={handleChange}/>
             <label className="star" htmlFor="star4" title="Great" aria-hidden="true"></label>
-            <input type="radio" id="star3" name="rating" value="3" />
+            <input type="radio" id="star3" name="rating" value="3" onChange={handleChange} />
             <label className="star" htmlFor="star3" title="Very good" aria-hidden="true"></label>
-            <input type="radio" id="star2" name="rating" value="2" />
+            <input type="radio" id="star2" name="rating" value="2" onChange={handleChange} />
             <label className="star" htmlFor="star2" title="Good" aria-hidden="true"></label>
-            <input type="radio" id="star1" name="rating" value="1" />
+            <input type="radio" id="star1" name="rating" value="1" onChange={handleChange} />
             <label className="star" htmlFor="star1" title="Bad" aria-hidden="true"></label>
           </div>
           </div>
