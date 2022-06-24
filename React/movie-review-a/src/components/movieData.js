@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import ReviewList from "./reviewList";
+import Review from "./review";
 import { Card } from "react-bootstrap";
 
 export default class MovieData extends React.Component {
@@ -30,7 +31,8 @@ export default class MovieData extends React.Component {
               </div> 
                 <br />
               <div>
-                  <ReviewList />
+                  <Review /> 
+                  {/* <ReviewList />                   */}
               </div>
             </Card.Body>
           </Card>

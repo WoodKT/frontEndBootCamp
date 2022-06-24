@@ -4,20 +4,23 @@ import { Button, Form } from "react-bootstrap";
 
 export default function UserForm({addReview}) {
 
-  const [userReview, setUserReview] = useState({
+  const [state, setState] = useState({
     username: "",
     userText: "",
     rating:"",
   });
 
   const handleChange = (event) => {
-    setUserReview({ ...userReview, [event.target.username]: event.target.value });
-  };
+    setState({
+      ...state,
+      [event.target.name]: event.target.value,
+    })
+  }
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    addReview(userReview);
-    setUserReview({ username: "", userText: "", rating: "" });
+    addReview(state);
+    setState({ username: "", userText: "", rating: "" });
   };
 
       return ( 
@@ -33,7 +36,7 @@ export default function UserForm({addReview}) {
               type="text"
               name="username"
               placeholder="Username"
-              value={userReview.name}
+              value={state.name}
               onChange={handleChange}
             />
           </div>
@@ -43,7 +46,7 @@ export default function UserForm({addReview}) {
               type="text"
               name="userText"
               placeholder="Enter your review here"
-              value={userReview.userText}
+              value={state.userText}
               onChange={handleChange}
             />
           </div>
