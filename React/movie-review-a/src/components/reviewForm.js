@@ -20,7 +20,7 @@ export default function UserForm({addReview}) {
   const handleSubmit = (event) => {
     event.preventDefault();
     addReview(state);
-    setState({ username: "", userText: "", rating: "" });
+    // setState({ username: "", userText: "", rating: "" });
   };
 
       return ( 
