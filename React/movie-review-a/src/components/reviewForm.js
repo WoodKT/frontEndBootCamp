@@ -27,7 +27,7 @@ export default function UserForm({addReview}) {
   console.log(state);
 
   return ( 
-    <Card className="border-primary"> 
+    <Card className="border-dark"> 
     <form onSubmit={handleSubmit}>
       <Card.Header as="h5">Submit Review Here</Card.Header>
       <div className="card-body">
