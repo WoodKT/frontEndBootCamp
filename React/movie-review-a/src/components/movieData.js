@@ -16,20 +16,18 @@ export default class MovieData extends React.Component {
     render() {
         return (
             <Card className="w-75 border-success">
-            <Card.Header as="h1">{this.state.title}</Card.Header>
+            <Card.Header as="h1">{this.state.title} <p className="card-subtitle mb-2 text-muted">{this.state.audience}</p></Card.Header>
             <Card.Body>
-              <div className="cardBody">
-                {this.state.synopsis}
-                <br />
-                {this.state.audience}
-              </div> 
-                <br />
               <div>
-                    <h5> User Reviews: </h5>    
+                <p>{this.state.synopsis}</p>
               </div> 
-                <br />
-                  <Review /> 
             </Card.Body>
+            <Card.Footer>
+            <div>
+              <h5>User Reviews:</h5>  
+              <Review />
+            </div> 
+            </Card.Footer>
           </Card>
         )
     }

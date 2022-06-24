@@ -1,13 +1,16 @@
+import "./stars.css";
+import { Card } from "react-bootstrap";
+
 export default function UserList({reviews}) {
     return (
       <div>
         {reviews.map((review) => (
-          <div className="card" key={review.username}>
+          <Card key={review.username}>
             {/* <p className="card-name">{review.username}</p> */}
-            <p>{review.username}</p>
-            <p>{review.userText}</p>
-            <p>{review.rating}</p>
-          </div>
+            <p className="card-header">{review.username}</p>
+            <Card.Body>{review.userText}</Card.Body>
+            <Card.Footer>{review.rating}</Card.Footer>
+          </Card>
         ))}
       </div>
     );

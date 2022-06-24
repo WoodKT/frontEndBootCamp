@@ -11,9 +11,13 @@ export default function Review() {
     };
   
     return (
-      <div>
-        <ReviewForm addReview={addReview} />
-        <ReviewList reviews={reviews} />
-      </div>
+        <div>
+            <div>
+                <ReviewList reviews={reviews} />
+            </div><br/>
+        <div>
+            <ReviewForm addReview={addReview} />
+        </div>
+        </div>
     );
   }

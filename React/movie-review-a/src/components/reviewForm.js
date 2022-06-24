@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import "./stars.css"
+import "./stars.css";
+import { Card } from "react-bootstrap";
 
 export default function UserForm({addReview}) {
   const initialState = {
@@ -26,7 +27,10 @@ export default function UserForm({addReview}) {
   console.log(state);
 
   return ( 
-    <form onSubmit={handleSubmit}> 
+    <Card className="border-primary"> 
+    <form onSubmit={handleSubmit}>
+      <Card.Header as="h5">Submit Review Here</Card.Header>
+      <div className="card-body">
       <div className="mb-3">
         <label>Username</label> <br/>
         <input
@@ -47,7 +51,7 @@ export default function UserForm({addReview}) {
           onChange={handleChange}
         />
       </div>
-      <div className="rating mb-3 form-check-inline">
+      <div className="rating mb-3">
         <input className="form-check-input" type="radio" id="star5" name="rating" value="5" checked={state.rating === "5"} onChange={handleChange} />
         <label className="star" htmlFor="star5" title="Awesome" aria-hidden="true" ></label>
         <input className="form-check-input" type="radio" id="star4" name="rating" value="4" checked={state.rating === "4"} onChange={handleChange}/>
@@ -58,16 +62,19 @@ export default function UserForm({addReview}) {
         <label className="star" htmlFor="star2" title="Good" aria-hidden="true"></label>
         <input className="form-check-input" type="radio" id="star1" name="rating" value="1" checked={state.rating === "1"} onChange={handleChange} />
         <label className="star" htmlFor="star1" title="Bad" aria-hidden="true"></label>
+      </div> <br/><br/>
       </div>
 
-      <div className="col-12">
+      <div className="card-footer">
         <button className="btn btn-primary" type="submit">Submit Review</button>
       </div>
     </form>
+    </Card>
   )
 }
 
-/* render() { 
+/* rating mb-3 form-check-inline
+render() { 
     return ( 
       <Form className="reviewFormClass">
 
