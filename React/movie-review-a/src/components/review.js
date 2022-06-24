@@ -12,9 +12,9 @@ export default function Review() {
   
     return (
         <div>
-            <div>
-                <ReviewList reviews={reviews} />
-            </div><br/>
+        <div>
+            <ReviewList reviews={reviews} />
+        </div><br/>
         <div>
             <ReviewForm addReview={addReview} />
         </div>
