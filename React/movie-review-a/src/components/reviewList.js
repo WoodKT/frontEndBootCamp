@@ -1,5 +1,3 @@
-import Review from "./review";
-
 export default function UserList({reviews}) {
     return (
       <div>

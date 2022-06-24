@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import "./stars.css"
-import { Button, Form } from "react-bootstrap";
 
 export default function UserForm({addReview}) {
-
-  const [state, setState] = useState({
+  const initialState = {
     username: "",
     userText: "",
     rating:"",
-  });
+  };
+  
+  const [state, setState] = useState(initialState);
 
   const handleChange = (event) => {
     setState({
@@ -20,61 +20,54 @@ export default function UserForm({addReview}) {
   const handleSubmit = (event) => {
     event.preventDefault();
     addReview(state);
-    // setState({ username: "", userText: "", rating: "" });
+    setState(initialState);
   };
 
-      return ( 
-        <div className="form-container">
-        <form onSubmit={handleSubmit}> 
-          <div>
-            <h3>Review Form</h3>
-          </div>
-          <div>
-          <div>
-            <label>Username</label> <br/>
-            <input
-              type="text"
-              name="username"
-              placeholder="Username"
-              value={state.name}
-              onChange={handleChange}
-            />
-          </div>
-          <div>
-            <label>Text Review</label> <br/>
-            <input
-              type="text"
-              name="userText"
-              placeholder="Enter your review here"
-              value={state.userText}
-              onChange={handleChange}
-            />
-          </div>
-          <div>
-          <div className="rating">
-            <input type="radio" id="star5" name="rating" value="5" onChange={handleChange} />
-            <label className="star" htmlFor="star5" title="Awesome" aria-hidden="true" ></label>
-            <input type="radio" id="star4" name="rating" value="4" onChange={handleChange}/>
-            <label className="star" htmlFor="star4" title="Great" aria-hidden="true"></label>
-            <input type="radio" id="star3" name="rating" value="3" onChange={handleChange} />
-            <label className="star" htmlFor="star3" title="Very good" aria-hidden="true"></label>
-            <input type="radio" id="star2" name="rating" value="2" onChange={handleChange} />
-            <label className="star" htmlFor="star2" title="Good" aria-hidden="true"></label>
-            <input type="radio" id="star1" name="rating" value="1" onChange={handleChange} />
-            <label className="star" htmlFor="star1" title="Bad" aria-hidden="true"></label>
-          </div>
-          </div>
-          </div>
+  console.log(state);
 
-          <div>
-            <button className="btn btn-primary" type="submit">Submit Review</button>
-          </div>
-        </form>
+  return ( 
+    <form onSubmit={handleSubmit}> 
+      <div className="mb-3">
+        <label>Username</label> <br/>
+        <input
+          type="text"
+          name="username"
+          placeholder="Username"
+          value={state.username}
+          onChange={handleChange}
+        />
       </div>
-      )
-  }
+      <div className="mb-3">
+        <label>Text Review</label> <br/>
+        <input
+          type="text"
+          name="userText"
+          placeholder="Enter your review here"
+          value={state.userText}
+          onChange={handleChange}
+        />
+      </div>
+      <div className="rating mb-3 form-check-inline">
+        <input className="form-check-input" type="radio" id="star5" name="rating" value="5" checked={state.rating === "5"} onChange={handleChange} />
+        <label className="star" htmlFor="star5" title="Awesome" aria-hidden="true" ></label>
+        <input className="form-check-input" type="radio" id="star4" name="rating" value="4" checked={state.rating === "4"} onChange={handleChange}/>
+        <label className="star" htmlFor="star4" title="Great" aria-hidden="true"></label>
+        <input className="form-check-input" type="radio" id="star3" name="rating" value="3" checked={state.rating === "3"} onChange={handleChange} />
+        <label className="star" htmlFor="star3" title="Very good" aria-hidden="true"></label>
+        <input className="form-check-input" type="radio" id="star2" name="rating" value="2" checked={state.rating === "2"} onChange={handleChange} />
+        <label className="star" htmlFor="star2" title="Good" aria-hidden="true"></label>
+        <input className="form-check-input" type="radio" id="star1" name="rating" value="1" checked={state.rating === "1"} onChange={handleChange} />
+        <label className="star" htmlFor="star1" title="Bad" aria-hidden="true"></label>
+      </div>
 
-{/* render() { 
+      <div className="col-12">
+        <button className="btn btn-primary" type="submit">Submit Review</button>
+      </div>
+    </form>
+  )
+}
+
+/* render() { 
     return ( 
       <Form className="reviewFormClass">
 
@@ -102,20 +95,13 @@ export default function UserForm({addReview}) {
     )
   }
 
-  https://blog.devgenius.io/react-bootstrap-creating-controlled-forms-to-add-and-update-data-with-a-flexible-number-of-inputs-6d2e4e6977c7
-
-https://blog.devgenius.io/create-a-multi-step-form-with-reactjs-322aa97a2968
-
-https://medium.com/@aaron_schuyler/building-react-forms-with-usestate-2cf45a3110ac
-
-https://therichpost.com/reactjs-star-rating-working-demo-part-1-star-rating-form/
-
+  
 https://www.agirl.codes/complete-guide-build-react-forms-with-usestate-hook
 https://github.com/Kellswork/contact-info
-
-https://www.npmjs.com/package/react-star-rating-input
 
 https://stackoverflow.com/questions/49622643/how-to-get-the-value-using-react-rating-component-in-my-form
 
 https://bootstrap-vue.org/docs/components/form-rating
- */}
+
+https://ibaslogic.com/simple-guide-to-react-form/
+ */

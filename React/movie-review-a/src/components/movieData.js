@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import ReviewList from "./reviewList";
+import React from "react";
 import Review from "./review";
 import { Card } from "react-bootstrap";
 
@@ -16,7 +15,7 @@ export default class MovieData extends React.Component {
 
     render() {
         return (
-            <Card className="w-75 bg-dark text-white border-success">
+            <Card className="w-75 border-success">
             <Card.Header as="h1">{this.state.title}</Card.Header>
             <Card.Body>
               <div className="cardBody">
@@ -25,15 +24,11 @@ export default class MovieData extends React.Component {
                 {this.state.audience}
               </div> 
                 <br />
-                <br />
               <div>
                     <h5> User Reviews: </h5>    
               </div> 
                 <br />
-              <div>
                   <Review /> 
-                  {/* <ReviewList />                   */}
-              </div>
             </Card.Body>
           </Card>
         )

@@ -17,25 +17,3 @@ export default function Review() {
       </div>
     );
   }
-// import React from "react";
-// import { Card } from "react-bootstrap";
-
-// export default class Review extends React.Component {
-//     constructor(props){   
-//         super(props);       
-//             this.text = props.text;
-//             this.username = props.username;
-//             this.userText = props.userText;
-//             this.rating = props.rating;
-//             this.key = props.key;
-//     }
-
-//     render() {
-//         return (
-//             <Card>
-//                 <Card.Header>{this.username}</Card.Header>
-//                 <Card.Body>{this.userText} {this.rating} </Card.Body>
-//             </Card>
-//         );
-//     }
-// }
