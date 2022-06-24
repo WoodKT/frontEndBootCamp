@@ -7,7 +7,7 @@ export default function UserList({reviews}) {
         {reviews.map((review) => (
           <Card key={review.username}>
             {/* <p className="card-name">{review.username}</p> */}
-            <p className="card-header">{review.username}</p>
+            <Card.Header>{review.username}</Card.Header>
             <Card.Body>{review.userText}</Card.Body>
             <Card.Footer>{review.rating}</Card.Footer>
           </Card>
