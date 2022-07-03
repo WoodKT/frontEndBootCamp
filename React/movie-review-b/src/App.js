@@ -5,8 +5,6 @@ import Read from './components/read';
 import Update from './components/update';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-// import '../node_modules/bootstrap/dist/css/bootstrap.css';
-
 function App() {
   return (
     <BrowserRouter>
