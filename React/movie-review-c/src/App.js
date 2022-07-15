@@ -33,7 +33,3 @@ function App() {
 }
 
 export default App;
-
-// https://v5.reactrouter.com/web/api/Hooks
-// https://arunkantpant.medium.com/getting-started-with-react-apis-mock-servers-and-routing-b97b88898077
-// https://www.geeksforgeeks.org/reactjs-keys/
