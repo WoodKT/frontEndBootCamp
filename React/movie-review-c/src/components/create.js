@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
-import { Button, Checkbox, Form } from 'semantic-ui-react'
+import { Button, Checkbox, Form } from 'semantic-ui-react';
 import axios from 'axios';
 
 export default function Create() {
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
-    const [checkbox, setCheckbox] = useState(false);
-    console.log(checkbox)
+    const [checkbox, setCheckbox] = React.useState(false);
     const postData = () => {
         axios.post(`https://62b9da1b41bf319d2287005d.mockapi.io/movieData`, {
             firstName,
@@ -26,7 +25,7 @@ export default function Create() {
                     <input placeholder='Last Name' onChange={(e) => setLastName(e.target.value)}/>
                 </Form.Field>
                 <Form.Field>
-                    <Checkbox label='I agree to the Terms and Conditions' onChange={(e) => setCheckbox(!checkbox)}/>
+                    <Checkbox label='I agree to the Terms and Conditions' onChange={(e) => setCheckbox(!checkbox)} />
                 </Form.Field>
                 <Button onClick={postData} type='submit'>Submit</Button>
             </Form>

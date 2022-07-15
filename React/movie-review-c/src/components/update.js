@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Button, Checkbox, Form } from 'semantic-ui-react'
+import { Button, Checkbox, Form } from 'semantic-ui-react';
 import axios from 'axios';
 
 export default function Update() {
     const [id, setID] = useState(null);
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
-    const [checkbox, setCheckbox] = useState(false);
+    const [checkbox, setCheckbox] = React.useState(false);
 
     useEffect(() => {
         setID(localStorage.getItem('ID'))
@@ -34,7 +34,7 @@ export default function Update() {
                     <input placeholder='Last Name' value={lastName} onChange={(e) => setLastName(e.target.value)}/>
                 </Form.Field>
                 <Form.Field>
-                    <Checkbox label='I agree to the Terms and Conditions' checked={checkbox} onChange={() => setCheckbox(!checkbox)}/>
+                    <Checkbox label='I agree to the Terms and Conditions'  onChange={() => setCheckbox(!checkbox)}/>
                 </Form.Field>
                 <Button type='submit' onClick={updateAPIData}>Update</Button>
             </Form>

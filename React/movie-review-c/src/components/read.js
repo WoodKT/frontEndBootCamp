@@ -9,16 +9,15 @@ export default function Read() {
         axios.get(`https://62b9da1b41bf319d2287005d.mockapi.io/movieData`)
         .then((response) => {
             setAPIData(response.data);
-            console.log(response.data);
         })
     }, []);
 
     const setData = (data) => {
-        let { id, firstName, lastName, checkbox } = data;
+        let { id, firstName, lastName, checked } = data;
         localStorage.setItem('ID', id);
         localStorage.setItem('First Name', firstName);
         localStorage.setItem('Last Name', lastName);
-        localStorage.setItem('Checkbox Value', checkbox)
+        localStorage.setItem('CheckBox Value', checked)
     }
 
     const getData = () => {
@@ -40,6 +39,7 @@ export default function Read() {
             <Table singleLine>
                 <Table.Header>
                     <Table.Row>
+                        <Table.HeaderCell>ID</Table.HeaderCell>
                         <Table.HeaderCell>First Name</Table.HeaderCell>
                         <Table.HeaderCell>Last Name</Table.HeaderCell>
                         <Table.HeaderCell>Checkbox Value</Table.HeaderCell>
@@ -52,14 +52,13 @@ export default function Read() {
                     {APIData.map((data) => {
                         return (
                             <Table.Row>
+                                <Table.Cell>{data.id}</Table.Cell>
                                 <Table.Cell>{data.firstName}</Table.Cell>
                                 <Table.Cell>{data.lastName}</Table.Cell>
                                 <Table.Cell>{data.checkbox ? 'Checked' : 'Unchecked'}</Table.Cell>
-                                <Link to='/update'>
                                     <Table.Cell> 
-                                        <Button onClick={() => setData(data)}>Update</Button>
+                                        <Button onClick={() => setData(data)}><Link to='/update'>Update</Link></Button>
                                     </Table.Cell>
-                                </Link>
                                 <Table.Cell>
                                     <Button onClick={() => onDelete(data.id)}>Delete</Button>
                                 </Table.Cell>
