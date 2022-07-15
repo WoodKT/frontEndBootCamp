@@ -12,6 +12,7 @@ function App() {
       <Router>
         <div className='main'>
         <NavBar/>
+        <br/>
         <Route
           path="/"
           exact
