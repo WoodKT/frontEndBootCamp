@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Button, Checkbox, Form } from 'semantic-ui-react';
 import axios from 'axios';
 
-export default function Create(props) {
+export default function Create() {
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [checkbox, setCheckbox] = React.useState(false);
