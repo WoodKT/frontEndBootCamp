@@ -13,7 +13,7 @@ export default class MenuExampleSecondary extends Component {
     const { activeItem } = this.state
 
     return (
-      <Menu secondary>
+      <Menu fluid widths={3} inverted>
         <Menu.Item
           as={NavLink} to="/"
           name='create'
