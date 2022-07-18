@@ -4,6 +4,7 @@ import Form from 'react-bootstrap/Form';
 
 const Home = () => {
   return (
+	<div>
     <Form>
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Email address</Form.Label>
@@ -20,10 +21,11 @@ const Home = () => {
       <Form.Group className="mb-3" controlId="formBasicCheckbox">
         <Form.Check type="checkbox" label="Check me out" />
       </Form.Group>
-      <Button variant="primary" type="submit">
+      <Button className="btn btn-dark btn-block" type="submit">
         Submit
       </Button>
     </Form>
+	</div>
   );
 };
 
