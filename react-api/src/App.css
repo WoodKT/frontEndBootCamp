@@ -62,3 +62,13 @@
 	padding: 20px;
 	text-align: center;
 }
+
+.main{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #212121;
+  color: whitesmoke;
+  flex-direction: column;
+}
