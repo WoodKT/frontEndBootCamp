@@ -9,6 +9,7 @@ import Blogs from './pages/blogs';
 import Movie from './pages/movie';
 import SignUp from './pages/signup';
 import Contact from './pages/contact';
+import Favorites from './pages/favorites';
 
 function App() {
 return (
@@ -20,6 +21,7 @@ return (
 		<Route path='/contact' element={<Contact/>} />
 		<Route path='/blogs' element={<Blogs/>} />
 		<Route path='/movie' element={<Movie/>} />
+		<Route path='/favorites' element={<Favorites/>} />
 		<Route path='/signup' element={<SignUp/>} />
 	</Routes>
 	</Router>
