@@ -4,9 +4,9 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { Link } from 'react-router-dom';
 
-function BasicExample() {
+function BasicNav() {
   return (
-    <Navbar bg="light" expand="lg">
+    <Navbar bg="dark" variant="dark" expand="lg">
       <Container>
         <Navbar.Brand as={Link} to="/">React-Bootstrap</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -32,30 +32,4 @@ function BasicExample() {
   );
 }
 
-export default BasicExample;
-
-// import React from 'react';
-// import { Link } from "react-router-dom";
-
-// const Navbar= () =>{
-//   return (
-//   <div>
-//     <li>
-//       <Link to="/">Home</Link>
-//     </li>
-//     <li>
-//       <Link to="/about">About</Link>
-//     </li>
-//     <li>
-//       <Link to="/movie">Movie</Link>
-//     </li>
-//     <li>
-//       <Link to="/contact">Contact</Link>
-//     </li>
-// 	<li>
-//       <Link to="/signup">Sign Up</Link>
-//     </li>
-//   </div>
-//   );
-// }
-// export default Navbar;
+export default BasicNav;
