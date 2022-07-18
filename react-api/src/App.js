@@ -15,8 +15,8 @@ function App() {
 return (
 	<Router>
 	<Navbar />
+	<div className=''>
 	<Routes>
-		<div className='main'>
 		<Route exact path='/' element={<Home />} />
 		<Route path='/about' element={<About/>} />
 		<Route path='/contact' element={<Contact/>} />
@@ -24,8 +24,8 @@ return (
 		<Route path='/movie' element={<Movie/>} />
 		<Route path='/favorites' element={<Favorites/>} />
 		<Route path='/signup' element={<SignUp/>} />
-		</div>
 	</Routes>
+	</div>
 	</Router>
 );
 }

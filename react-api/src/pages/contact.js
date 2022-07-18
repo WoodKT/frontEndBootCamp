@@ -2,6 +2,7 @@ import Form from 'react-bootstrap/Form';
 
 function Contact() {
   return (
+    <div className='main'>
     <Form>
       <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
         <Form.Label>Email address</Form.Label>
@@ -12,6 +13,7 @@ function Contact() {
         <Form.Control as="textarea" rows={3} />
       </Form.Group>
     </Form>
+    </div>
   );
 }
 

@@ -19,6 +19,7 @@ function SignUp() {
   };
 
   return (
+    <div className='main'>
     <Form noValidate validated={validated} onSubmit={handleSubmit}>
       <Row className="mb-3">
         <Form.Group as={Col} md="4" controlId="validationCustom01">
@@ -90,6 +91,7 @@ function SignUp() {
       </Form.Group>
       <Button type="submit">Submit form</Button>
     </Form>
+    </div>
   );
 };
 
