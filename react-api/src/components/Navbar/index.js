@@ -14,6 +14,7 @@ function BasicNav() {
           <Nav className="me-auto">
             <Nav.Link as={Link} to="/">Home</Nav.Link>
             <Nav.Link as={Link} to="/movie">Movie</Nav.Link>
+            <Nav.Link as={Link} to="/favorites">Favorites</Nav.Link>
             <NavDropdown title="Dropdown" id="basic-nav-dropdown">
               <NavDropdown.Item as={Link} to="/contact">Contact</NavDropdown.Item>
               <NavDropdown.Item as={Link} to="/blogs">
