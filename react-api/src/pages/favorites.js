@@ -4,7 +4,7 @@ import MovieList from '../components/MovieList';
 import MovieListHeading from '../components/MovieListHeading';
 import RemoveFavorites from '../components/RemoveFavorites';
 
-const Favorite = () => {
+const Favorites = () => {
 	const [favorites, setFavorites] = useState([]);
 
 	useEffect(() => {
