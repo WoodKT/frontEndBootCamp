@@ -13,8 +13,8 @@ return (
 		<NavLink to="/contact" >
 			Contact Us
 		</NavLink>
-		<NavLink to="/blogs" >
-			Blogs
+		<NavLink to="/movie" >
+			Movies
 		</NavLink>
 		<NavLink to="/sign-up" >
 			Sign Up
