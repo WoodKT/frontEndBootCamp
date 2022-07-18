@@ -22,7 +22,7 @@ const Home = () => {
         <Form.Check type="checkbox" label="Agree Here" />
       </Form.Group>
       <Button className="btn btn-dark btn-block" type="submit">
-        Submit
+        Log In
       </Button>
     </Form>
 	</div>
