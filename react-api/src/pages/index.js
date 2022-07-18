@@ -19,7 +19,7 @@ const Home = () => {
         <Form.Control type="password" placeholder="Password" />
       </Form.Group>
       <Form.Group className="mb-3" controlId="formBasicCheckbox">
-        <Form.Check type="checkbox" label="Check me out" />
+        <Form.Check type="checkbox" label="Agree Here" />
       </Form.Group>
       <Button className="btn btn-dark btn-block" type="submit">
         Submit
