@@ -4,12 +4,13 @@ import React, { useState } from 'react';
 import axios from 'axios';
 
 function Contact() {
-  const [id, setID] = useState(null);
+  // const [id, setID] = useState(null);
   const [email, setEmail] = useState('');
   const [concern, setConcern] = useState('');
   const postData = () => {
       axios.post(`https://react-api.free.beeceptor.com/my/api/contact/`, {
           // id : "{{faker 'random.uuid'}}",
+          // id,
           email,
           concern
       })
