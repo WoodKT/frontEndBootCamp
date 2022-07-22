@@ -18,7 +18,7 @@ function BasicNav() {
             <NavDropdown title="Dropdown" id="basic-nav-dropdown">
               <NavDropdown.Item as={Link} to="/contact">Contact</NavDropdown.Item>
               <NavDropdown.Item as={Link} to="/blogs">
-                Blogs
+                Blog
               </NavDropdown.Item>
               <NavDropdown.Item as={Link} to="/about">About</NavDropdown.Item>
               <NavDropdown.Divider />
