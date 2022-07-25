@@ -4,6 +4,7 @@ import Button from 'react-bootstrap/Button';
 function Contact() {
   return (
     <div className='main'>
+      <div>
     <Form>
       <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
         <Form.Label>Email address</Form.Label>
@@ -16,6 +17,8 @@ function Contact() {
       <Button type="submit">Submit</Button>
     </Form>
     </div>
+    </div>
+
   );
 }
 
