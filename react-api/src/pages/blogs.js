@@ -1,8 +1,11 @@
 import React from 'react';
+import Contact from './contact';
 
 const Blogs = () => {
 return (
-	<h1>You can write your blogs!</h1>
+	<div>
+		<Contact/>
+	</div>
 );
 };
 
