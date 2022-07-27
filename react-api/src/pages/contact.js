@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 export default function Contact() {
     const [APIData, setAPIData] = useState([]);
     useEffect(() => {
-        axios.get(`https://react-api.free.beeceptor.com`)
+        axios.get(`https://react-api.free.beeceptor.com/contact`)
         .then((response) => {
             setAPIData(response.data);
         })
@@ -21,14 +21,14 @@ export default function Contact() {
     }
 
     const getData = () => {
-        axios.get(`https://react-api.free.beeceptor.com`)
+        axios.get(`https://react-api.free.beeceptor.com/contact`)
             .then((getData) => {
                 setAPIData(getData.data);
             })
     }
 
     const onDelete = (id) => {
-        axios.delete(`https://react-api.free.beeceptor.com/${id}`)
+        axios.delete(`https://react-api.free.beeceptor.com/contact/${id}`)
         .then(() => {
             getData();
         })
