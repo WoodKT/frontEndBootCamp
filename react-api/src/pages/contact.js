@@ -5,12 +5,15 @@ import { Link } from 'react-router-dom';
 //import { contactUpdate } from '../components/contactUpdate';
 
 export default function Contact() {
-    const [APIData, setAPIData] = useState([]);
+    // const [APIData, setAPIData] = useState([]);
+    const [info, setInfo] = useState({});
+    const { contacts = [] } = info;
+
     useEffect(() => {
         axios.get(`https://react-api.free.beeceptor.com/contact`)
         .then((response) => {
-            setAPIData(response.data);
-        })
+            setInfo(response.data);
+        });
     }, []);
 
     const setData = (data) => {
@@ -23,7 +26,7 @@ export default function Contact() {
     const getData = () => {
         axios.get(`https://react-api.free.beeceptor.com/contact`)
             .then((getData) => {
-                setAPIData(getData.data);
+                setData(getData.data);
             })
     }
 
@@ -48,9 +51,10 @@ export default function Contact() {
                 </thead>
 
                 <tbody>
-                    {APIData.map((data) => {
+                    {/* {data.contacts.map((data) => { */}
+                    {info && info.contacts && info.contacts.length > 0 && info.contacts.map((contact) => {
                         return (
-                            <tr key={data.id}>
+                            <tr key={contact.id}>
                                 <td>{data.id}</td>
                                 <td>{data.email}</td>
                                 <td>{data.feedback}</td>
