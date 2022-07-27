@@ -1,33 +1,36 @@
 import React from 'react';
 import './App.css';
-import Navbar from './components/Navbar';
-import { BrowserRouter as Router, Routes, Route}
-	from 'react-router-dom';
-import Home from './pages';
+import { BrowserRouter as Router, Route} from 'react-router-dom';
+import Home from './pages/home';
 import About from './pages/about';
 import Blogs from './pages/blogs';
 import Movie from './pages/movie';
 import SignUp from './pages/signup';
-import Contact from './pages/contact';
 import Favorites from './pages/favorites';
+import Contact from './pages/contact';
+import ContactUpdate from './components/contactUpdate';
+import ContactForm from './components/contactForm';
+import Navigation from './components/Navbar/Navigation';
 
 function App() {
-return (
-	<Router>
-	<Navbar />
-	<div className=''>
-	<Routes>
-		<Route exact path='/' element={<Home />} />
-		<Route path='/about' element={<About/>} />
-		<Route path='/contact' element={<Contact/>} />
-		<Route path='/blogs' element={<Blogs/>} />
-		<Route path='/movie' element={<Movie/>} />
-		<Route path='/favorites' element={<Favorites/>} />
-		<Route path='/signup' element={<SignUp/>} />
-	</Routes>
-	</div>
-	</Router>
-);
+	return (
+		<div>
+			<Router>
+				<div>
+					<Navigation/>
+					<Route path='/' exact render={() => <Home/>} />
+					<Route path='/about' exact render={() => <About/>} />
+					<Route path='/contactForm' render={() => <ContactForm/>} />
+					<Route path='/blogs' exact render={() => <Blogs/>} />
+					<Route path='/movie' exact render={() => <Movie/>} />
+					<Route path='/favorites' exact render={() => <Favorites/>} />
+					<Route path='/signup' exact render={() => <SignUp/>} />
+					<Route path='/contactUpdate' render={() => <ContactUpdate/>} />
+					<Route path='/contact' render={() => <Contact/>} />
+				</div>
+			</Router>
+		</div>
+	);
 }
 
 export default App;
