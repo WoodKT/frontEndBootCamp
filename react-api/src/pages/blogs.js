@@ -1,10 +1,9 @@
 import React from 'react';
-import Contact from './contact';
 
 const Blogs = () => {
 return (
 	<div>
-		<Contact/>
+		<h1>fake blog here</h1>
 	</div>
 );
 };
