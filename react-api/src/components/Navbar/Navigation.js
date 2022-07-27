@@ -9,13 +9,13 @@ export default function Navigation() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link as={Link} to="/home">Home</Nav.Link>
+            <Nav.Link as={Link} to="/">Home</Nav.Link>
             <Nav.Link as={Link} to="/movie">Movie</Nav.Link>
             <Nav.Link as={Link} to="/favorites">Favorites</Nav.Link>
             <NavDropdown title="Dropdown" id="basic-nav-dropdown">
               <NavDropdown.Item as={Link} to="/contactForm">Contact</NavDropdown.Item>
-              <NavDropdown.Item as={Link} to="/blogs">
-                Blogs
+              <NavDropdown.Item as={Link} to="/contact">
+                Contact Data
               </NavDropdown.Item>
               <NavDropdown.Item as={Link} to="/about">About</NavDropdown.Item>
               <NavDropdown.Divider />
