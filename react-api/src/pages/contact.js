@@ -5,33 +5,33 @@ import { Link } from 'react-router-dom';
 //import { contactUpdate } from '../components/contactUpdate';
 
 export default function Contact() {
-    // const [APIData, setAPIData] = useState([]);
+    const [APIData, setAPIData] = useState([]);
     const [info, setInfo] = useState({});
     const { contacts = [] } = info;
 
     useEffect(() => {
-        axios.get(`https://react-api.free.beeceptor.com/contact`)
+        axios.get(`https://62e29afdb54fc209b87cddab.mockapi.io/contact/:id`)
         .then((response) => {
             setInfo(response.data);
         });
     }, []);
 
     const setData = (data) => {
-        let { id, email, feedback } = data;
+        let { email, feedback } = data;
         localStorage.setItem('ID', id);
         localStorage.setItem('Email', email);
         localStorage.setItem('Feedback', feedback);
     }
 
     const getData = () => {
-        axios.get(`https://react-api.free.beeceptor.com/contact`)
+        axios.get(`https://62e29afdb54fc209b87cddab.mockapi.io/contact/:id`)
             .then((getData) => {
                 setData(getData.data);
             })
     }
 
     const onDelete = (id) => {
-        axios.delete(`https://react-api.free.beeceptor.com/contact/${id}`)
+        axios.delete(`https://62e29afdb54fc209b87cddab.mockapi.io/contact/:id`)
         .then(() => {
             getData();
         })
@@ -42,7 +42,7 @@ export default function Contact() {
             <Table striped bordered hover variant="dark">
                 <thead>
                     <tr>
-                        <th>ID</th>
+                        {/* <th>ID</th> */}
                         <th>Email</th>
                         <th>Feedback</th>
                         <th>Update</th>
@@ -54,15 +54,15 @@ export default function Contact() {
                     {/* {data.contacts.map((data) => { */}
                     {info && info.contacts && info.contacts.length > 0 && info.contacts.map((contact) => {
                         return (
-                            <tr key={contact.id}>
-                                <td>{data.id}</td>
-                                <td>{data.email}</td>
-                                <td>{data.feedback}</td>
+                            <tr key={contacts.email}>
+                                {/* <td>{info.id}</td> */}
+                                <td>{info.email}</td>
+                                <td>{info.feedback}</td>
                                     <td> 
-                                        <Button onClick={() => setData(data)}><Link to='/contactUpdate'>Update</Link></Button>
+                                        <Button onClick={() => setData(contact)}><Link to='/contactUpdate'>Update</Link></Button>
                                     </td>
                                 <td>
-                                    <Button onClick={() => onDelete(data.id)}>Delete</Button>
+                                    <Button onClick={() => onDelete(contact.id)}>Delete</Button>
                                 </td>
                             </tr>
                         )
