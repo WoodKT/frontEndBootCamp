@@ -14,7 +14,8 @@ export default function ContactUpdate() {
     }, []);
 
     const updateAPIData = () => {
-        axios.put(`https://react-api.free.beeceptor.com/${id}`, {
+        axios.put(`https://62e29afdb54fc209b87cddab.mockapi.io/contact/:id`, {
+            id,
             email,
             feedback
         })
