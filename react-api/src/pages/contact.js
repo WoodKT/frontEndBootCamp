@@ -58,10 +58,10 @@ export default function Contact() {
                                 <td>{data.email}</td>
                                 <td>{data.feedback}</td>
                                     <td> 
-                                        <Button onClick={() => setData(data)}><Link to='/contactUpdate'>Update</Link></Button>
+                                        <Button variant='outline-primary' onClick={() => setData(data)}><Link to='/contactUpdate'>Update</Link></Button>
                                     </td>
                                 <td>
-                                    <Button onClick={() => onDelete(data.id)}>Delete</Button>
+                                    <Button variant='danger' onClick={() => onDelete(data.id)}>Delete</Button>
                                 </td>
                             </tr>
                         )
