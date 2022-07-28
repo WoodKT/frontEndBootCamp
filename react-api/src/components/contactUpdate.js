@@ -21,7 +21,7 @@ export default function ContactUpdate() {
     }
     return (
         <div>
-        <Form className= "" >
+        <Form className= "main" >
         <Form.Group>
         <Form.Label>Email </Form.Label>
         < Form.Control placeholder = 'email' onChange = {(e) => setEmail(e.target.value)
@@ -31,6 +31,7 @@ export default function ContactUpdate() {
     <Form.Label>Feedback </Form.Label>
     < Form.Control placeholder = 'feedback' onChange = {(e) => setFeedback(e.target.value)}/>
         </Form.Group>
+        <br/>
         < Button onClick={updateAPIData} type = 'submit' > Submit </Button>
             </Form>
             </div>
