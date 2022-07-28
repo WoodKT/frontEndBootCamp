@@ -17,7 +17,6 @@ export default function Navigation() {
               <NavDropdown.Item as={Link} to="/contact">
                 Contact Data
               </NavDropdown.Item>
-              <NavDropdown.Item as={Link} to="/about">About</NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item as={Link} to="/signup">
                 Sign Up
