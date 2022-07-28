@@ -2,8 +2,6 @@ import React from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route} from 'react-router-dom';
 import Home from './pages/home';
-import About from './pages/about';
-import Blogs from './pages/blogs';
 import Movie from './pages/movie';
 import SignUp from './pages/signup';
 import Favorites from './pages/favorites';
@@ -19,9 +17,7 @@ function App() {
 				<div>
 					<Navigation/>
 					<Route path='/' exact render={() => <Home/>} />
-					<Route path='/about' exact render={() => <About/>} />
 					<Route path='/contactForm' render={() => <ContactForm/>} />
-					<Route path='/blogs' exact render={() => <Blogs/>} />
 					<Route path='/movie' exact render={() => <Movie/>} />
 					<Route path='/favorites' exact render={() => <Favorites/>} />
 					<Route path='/signup' exact render={() => <SignUp/>} />
