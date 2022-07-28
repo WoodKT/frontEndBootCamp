@@ -13,9 +13,9 @@ export default function Navigation() {
             <Nav.Link as={Link} to="/movie">Movie</Nav.Link>
             <Nav.Link as={Link} to="/favorites">Favorites</Nav.Link>
             <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-              <NavDropdown.Item as={Link} to="/contactForm">Contact</NavDropdown.Item>
-              <NavDropdown.Item as={Link} to="/contact">
-                Contact Data
+              <NavDropdown.Item as={Link} to="/feedbackForm">Feedback</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/feedbackTable">
+                Feedback Data
               </NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item as={Link} to="/signup">
