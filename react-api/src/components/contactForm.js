@@ -1,26 +1,3 @@
-// export default function ContactForm({addContact}) {
-//   const initialState = {
-//     email: "",
-//     userText: ""
-//   };
-  
-//   const [state, setState] = useState(initialState);
-
-//   const handleChange = (event) => {
-//     setState({
-//       ...state,
-//       [event.target.name]: event.target.value,
-//     })
-//   }
-
-//   const handleSubmit = (event) => {
-//     event.preventDefault();
-//     addContact(state);
-//     setState(initialState);
-//   };
-
-//   console.log(state);
-
 import React, { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import axios from 'axios';
