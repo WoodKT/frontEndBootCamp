@@ -27,7 +27,7 @@ export default function FeedbackUpdate() {
             <MovieListHeading heading='Update Record' />
             <br/>
             </div>
-        <Form className='' >
+        <Form>
         <Form.Group>
         <Form.Label>Email </Form.Label>
         < Form.Control placeholder = 'email' onChange = {(e) => setEmail(e.target.value)} />
