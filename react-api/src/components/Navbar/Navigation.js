@@ -15,7 +15,7 @@ export default function Navigation() {
             <NavDropdown title="Dropdown" id="basic-nav-dropdown">
               <NavDropdown.Item as={Link} to="/feedbackForm">Feedback</NavDropdown.Item>
               <NavDropdown.Item as={Link} to="/feedbackTable">
-                Feedback Data
+                Feedback Table
               </NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item as={Link} to="/signup">
