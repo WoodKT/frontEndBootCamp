@@ -5,8 +5,6 @@ import { Link } from 'react-router-dom';
 
 export default function Contact() {
     const [APIData, setAPIData] = useState([]);
-    //const [info, setInfo] = useState([]); // [] was {}
-    //const { contacts = [] } = info;
 
     useEffect(() => {
         axios.get(`https://62e29afdb54fc209b87cddab.mockapi.io/contact/`)
@@ -51,7 +49,6 @@ export default function Contact() {
 
                 <tbody>
                     {APIData.map((data) => {
-                    {/* {info && info.contacts && info.contacts.length > 0 && info.contacts.map((contact) => { */}
                         return (
                             <tr key={data.id}>
                                 <td>{data.id}</td>
