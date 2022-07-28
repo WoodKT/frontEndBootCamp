@@ -2,6 +2,7 @@ import React, {useState, useEffect } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import axios from 'axios';
 import FeedbackLinks from './feedbackLinks';
+import MovieListHeading from './MovieListHeading';
 
 export default function FeedbackUpdate() {
     const [id, setID] = useState(null);
@@ -21,8 +22,12 @@ export default function FeedbackUpdate() {
         })
     }
     return (
-        <div>
-        <Form className= "main" >
+        <div className='main'>
+            <div>
+            <MovieListHeading heading='Update Record' />
+            <br/>
+            </div>
+        <Form className='' >
         <Form.Group>
         <Form.Label>Email </Form.Label>
         < Form.Control placeholder = 'email' onChange = {(e) => setEmail(e.target.value)} />
