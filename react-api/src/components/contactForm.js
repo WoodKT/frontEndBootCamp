@@ -29,7 +29,7 @@ export default function ContactForm() {
     const [email, setEmail] = useState('');
     const [feedback, setFeedback] = useState('');
     const postData = () => {
-        axios.post(`https://react-api.free.beeceptor.com`, {
+        axios.post(`https://62e29afdb54fc209b87cddab.mockapi.io/contact`, {
             email,
             feedback
         })
