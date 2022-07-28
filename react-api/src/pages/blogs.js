@@ -2,7 +2,9 @@ import React from 'react';
 
 const Blogs = () => {
 return (
-	<h1>You can write your blogs!</h1>
+	<div>
+		<h1>fake blog here</h1>
+	</div>
 );
 };
 

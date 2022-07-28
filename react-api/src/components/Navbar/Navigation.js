@@ -1,10 +1,7 @@
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
+import { Navbar, Nav, NavDropdown, Container } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
-function BasicNav() {
+export default function Navigation() {
   return (
     <Navbar bg="dark" variant="dark" expand="lg">
       <Container>
@@ -16,9 +13,9 @@ function BasicNav() {
             <Nav.Link as={Link} to="/movie">Movie</Nav.Link>
             <Nav.Link as={Link} to="/favorites">Favorites</Nav.Link>
             <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-              <NavDropdown.Item as={Link} to="/contact">Contact</NavDropdown.Item>
-              <NavDropdown.Item as={Link} to="/blogs">
-                Blog
+              <NavDropdown.Item as={Link} to="/contactForm">Contact</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/contact">
+                Contact Data
               </NavDropdown.Item>
               <NavDropdown.Item as={Link} to="/about">About</NavDropdown.Item>
               <NavDropdown.Divider />
@@ -32,5 +29,3 @@ function BasicNav() {
     </Navbar>
   );
 }
-
-export default BasicNav;

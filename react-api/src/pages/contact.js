@@ -1,35 +1,70 @@
-import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
-import React, { useState } from 'react';
 import axios from 'axios';
+import React, { useEffect, useState } from 'react';
+import { Table, Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
-function Contact() {
-  // const [id, setID] = useState(null);
-  const [email, setEmail] = useState('');
-  const [concern, setConcern] = useState('');
-  const postData = () => {
-      axios.post(`https://react-api.free.beeceptor.com/my/api/contact/`, {
-          // id : "{{faker 'random.uuid'}}",
-          // id,
-          email,
-          concern
-      })
-  }
-  return (
-    <div className='main'>
-    <Form>
-      <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-        <Form.Label>Email Address</Form.Label>
-        <Form.Control type="email" placeholder="name@example.com" onChange={(e) => setEmail(e.target.value)} />
-      </Form.Group>
-      <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-        <Form.Label>Questions and Concerns</Form.Label>
-        <Form.Control as="textarea" rows={3} onChange={(e) => setConcern(e.target.value)} />
-      </Form.Group>
-      <Button onClick={postData} type="submit">Submit</Button>
-    </Form>
-    </div>
-  );
-};
+export default function Contact() {
+    const [APIData, setAPIData] = useState([]);
 
-export default Contact;
+    useEffect(() => {
+        axios.get(`https://62e29afdb54fc209b87cddab.mockapi.io/contact/`)
+        .then((response) => {
+            setAPIData(response.data);
+        });
+    }, []);
+
+    const setData = (data) => {
+        let { id, email, feedback } = data;
+        localStorage.setItem('ID', id);
+        localStorage.setItem('Email', email);
+        localStorage.setItem('Feedback', feedback);
+    }
+
+    const getData = () => {
+        axios.get(`https://62e29afdb54fc209b87cddab.mockapi.io/contact/`)
+            .then((getData) => {
+                setAPIData(getData.data);
+            })
+    }
+
+    const onDelete = (id) => {
+        axios.delete(`https://62e29afdb54fc209b87cddab.mockapi.io/contact/${id}`)
+        .then(() => {
+            getData();
+        })
+    }
+
+    return (
+        <div>
+            <Table striped bordered hover variant="dark">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Email</th>
+                        <th>Feedback</th>
+                        <th>Update</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {APIData.map((data) => {
+                        return (
+                            <tr key={data.id}>
+                                <td>{data.id}</td>
+                                <td>{data.email}</td>
+                                <td>{data.feedback}</td>
+                                    <td> 
+                                        <Button variant='outline-primary' onClick={() => setData(data)}><Link to='/contactUpdate'>Update</Link></Button>
+                                    </td>
+                                <td>
+                                    <Button variant='danger' onClick={() => onDelete(data.id)}>Delete</Button>
+                                </td>
+                            </tr>
+                        )
+                    })}
+                </tbody>
+            </Table>
+        </div>
+    )
+}
